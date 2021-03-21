@@ -1,0 +1,24 @@
+Členové:
+Martin Douša xdousa00
+Ondřej Sláma xslama32
+Vojtěch Shindler xschin05
+
+Termíny:
+1)	Repozitář				- 20.3.2021
+2)	Testy					- 26.3.2021
+3)	Implementace základní mat operace	- 10.4.2021
+4)	Implementace složité mat operace	- 12.4.2021
+5)	Profiling, GUI				- 13.4.2021
+6)	Přídavné funkce				- 18.4.2021
+7)	Dokumentace, Manuál			- 20.4.2021
+8)	Bugfixing
+
+Rozdělení práce:
+GUI			- Martin Douša
+Dokumentace		- Vojtěch Schindler
+Profiling 		- Ondřej Sláma
+Testy			- Martin Douša
+Repozitář		- Martin Douša
+Zák. mat. funkce	- Ondřej Sláma
+Komplex. mat. funkce	- Vojtěch Schindler
+Manuál 			- Vojtěch Schindler
