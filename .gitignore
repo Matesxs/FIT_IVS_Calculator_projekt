@@ -4,3 +4,5 @@ build/
 venv/
 dist/
 __pycache__/
+*.zip
+*.rar

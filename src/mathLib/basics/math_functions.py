@@ -25,8 +25,12 @@ class MathFunctions:
 
   @staticmethod
   def root_operation(num1, num2):
+    if num1 < 0:
+      raise RuntimeError("Root base can't be less than zero")
+
     if num2 == 0:
       raise RuntimeError("Root with base of zero is not defined")
+
     return num1 ** (1 / num2)
 
   @staticmethod

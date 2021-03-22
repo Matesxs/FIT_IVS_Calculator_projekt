@@ -60,7 +60,7 @@ class Tokenizer:
         tokens.append(Token(TokenType.RPAREN))
 
       else:
-        res = self.parse_parse_keyword()
+        res = self.parse_keyword()
         if not res:
           raise SyntaxError("Found invalid tokens in input")
         tokens.append(res)
@@ -88,7 +88,7 @@ class Tokenizer:
 
     return Token(TokenType.NUMBER, float(number_string))
 
-  def parse_parse_keyword(self):
+  def parse_keyword(self):
     if self.current_character not in LATTERS:
       return None
 

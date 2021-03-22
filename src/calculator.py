@@ -42,6 +42,8 @@ class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
     self.button_rand.clicked.connect(self.button_pressed)
     self.e_button.clicked.connect(self.button_pressed)
 
+    self.input.setFocus()
+
   def erase(self):
     self.input.setText("")
     self.input.setFocus()

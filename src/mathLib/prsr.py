@@ -21,7 +21,7 @@ class Parser:
     except:
       self.current_token = None
 
-  def parse(self):
+  def parse(self, debug:bool=False):
     if self.current_token is None:
       return None
 
@@ -30,6 +30,8 @@ class Parser:
     if self.current_token is not None:
       raise SyntaxError(f"Failed to parse '{self.current_token}'")
 
+    if debug:
+      print(f"Debug parser output: {result}")
     return result
 
   def expr(self):
@@ -40,6 +42,8 @@ class Parser:
 
   def factor(self):
     token = self.current_token
+    if token is None:
+      raise SyntaxError("Nothing to parse")
 
     if token.type in (TokenType.PLUS, TokenType.MINUS):
       self.move_forward()
@@ -51,6 +55,9 @@ class Parser:
 
   def atom(self):
     token = self.current_token
+
+    if token is None:
+      raise SyntaxError("Nothing to parse")
 
     if token.type == TokenType.NUMBER:
       self.move_forward()

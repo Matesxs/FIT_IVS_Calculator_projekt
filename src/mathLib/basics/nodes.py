@@ -14,7 +14,7 @@ class UnaryOperationNode:
   value: any
 
   def __repr__(self):
-    return f"({self.operation_token.type.name}, {self.value})"
+    return f"({self.operation_token.type.name if self.operation_token.value is None else str(self.operation_token.value).upper()}, {self.value})"
 
 @dataclass
 class BinaryOperationNode:
@@ -23,4 +23,4 @@ class BinaryOperationNode:
   value2: any
 
   def __repr__(self):
-    return f"({self.value1}, {self.operation_token.type.name}, {self.value2})"
+    return f"({self.value1}, {self.operation_token.type.name if self.operation_token.value is None else str(self.operation_token.value).upper()}, {self.value2})"
