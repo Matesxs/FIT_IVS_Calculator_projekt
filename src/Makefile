@@ -51,7 +51,7 @@ init:
 
 executable: main.py calculator.py app_ui.py mathLib
 	pyinstaller --onefile --noconsole --clean -n Calculator main.py
-	copy dist\Calculator.exe ..\installers\Calculator.exe
+	copy dist\Calculator.exe ..\installers\Windows\Calculator.exe
 	rmdir /q /s build
 	rmdir /q /s dist
 	del Calculator.spec
