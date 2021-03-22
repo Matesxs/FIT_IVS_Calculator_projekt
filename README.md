@@ -1,4 +1,12 @@
-# IVS Project 2
+<div align="center">
+    <h1>Calculator</h1>
+    <p>IVS Project 2</p>
+    <p>2020/2021</p>
+    <p>
+    <img src="screenshot.jpg">
+    <br>
+    </p>
+</div>
 
 ## Getting Started
 
