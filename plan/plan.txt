@@ -3,22 +3,25 @@ Martin Douša xdousa00
 Ondřej Sláma xslama32
 Vojtěch Shindler xschin05
 
+DEADLINE: 30. 4. 2021
+
 Termíny:
-1)	Repozitář				- 20.3.2021
-2)	Testy					- 26.3.2021
-3)	Implementace základní mat operace	- 10.4.2021
-4)	Implementace složité mat operace	- 12.4.2021
-5)	Profiling, GUI				- 13.4.2021
-6)	Přídavné funkce				- 18.4.2021
-7)	Dokumentace, Manuál			- 20.4.2021
-8)	Bugfixing
+1)	Repozitář, requirements.txt
+2)	Testy mat operací, základ makefile
+3)  Matematické oprace
+4)  Kontrola a korekce testů mat operací
+5)  Testy tokenizeru
+6)  Tokenizer
+7)  Testy parseru
+8)  Parser
+9)  Testy interpreteru
+10) Interpreter
+11) Testy endpointu
+12) Endpoint
+13) Kontrola testů a edgecasů, doplnění makefile
+14) UI, profiling
+15) Integrace mat knihovny do UI
+16) Testování
+17) Kontrola dokumentace, manuál, finalizace makefile
 
 Rozdělení práce:
-GUI			- Martin Douša
-Dokumentace		- Vojtěch Schindler
-Profiling 		- Ondřej Sláma
-Testy			- Martin Douša
-Repozitář		- Martin Douša
-Zák. mat. funkce	- Ondřej Sláma
-Komplex. mat. funkce	- Vojtěch Schindler
-Manuál 			- Vojtěch Schindler
