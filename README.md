@@ -1,16 +1,23 @@
-Prostredi
----------
+# IVS Project 2
 
-Windows 64bit - TO BE TESTED
+## Getting Started
 
-Autori
-------
+If you want to play with code yourself clone this repository like this
+```
+git clone <TODO>
+```
 
-Nazev tymu: "Název týmu:"
-	- xdousa00 Martin Douša
-	- xslama32 Ondřej Sláma
-	- xschin05 Vojtěch Schindler
-	
-Licence
--------
+## Tools
+
+* [Python](https://www.python.org/)
+* [PyQt](https://wiki.python.org/moin/PyQt)
+
+## Authors
+
+* **Martin Douša**
+* **Ondřej Sláma**
+* **Vojtěch Schindler**
+
+## License
+
 This project is licensed under the GNU GPL v.3 License.
