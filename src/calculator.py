@@ -10,15 +10,13 @@ from mathLib.entry_point import interpret_text_input
 # @brief Class for connection between GUI and math library
 #
 class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
-
+  ##
+  # @brief Initialization calculator
+  # Connection between UI and math library
+  #
+  # @param self Object pointer
+  #
   def __init__(self):
-    ##
-    # @brief Initialization calculator
-    # Connection between UI and math library
-    #
-    # @param self Object pointer
-    #
-
     super().__init__()
     self.setStyleSheet('QWidget {font: "Roboto Mono"}')
 
@@ -59,23 +57,21 @@ class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
 
     self.input.setFocus()
 
+  ##
+  # @brief Erase whole input field
+  #
+  # @param self Object pointer
+  #
   def erase(self):
-    ##
-    # @brief Erase whole input field
-    #
-    # @param self Object pointer
-    #
-
     self.input.setText("")
     self.input.setFocus()
 
+  ##
+  # @brief Erase one character before cursor in input field
+  #
+  # @param self Object pointer
+  #
   def erase_last(self):
-    ##
-    # @brief Erase one character before cursor in input field
-    #
-    # @param self Object pointer
-    #
-
     start_pos = self.input.cursorPosition()
     if start_pos > 0:
       start_string = self.input.text()
@@ -83,123 +79,112 @@ class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
       self.input.setFocus()
       self.input.setCursorPosition(start_pos-1)
 
+  ##
+  # @brief Get content of input field and pass it to math library for parsing
+  #
+  # @param self Object pointer
+  #
   def solve_input(self):
-    ##
-    # @brief Get content of input field and pass it to math library for parsing
-    #
-    # @param self Object pointer
-    #
-
     if self.input.text() == "Error":
       self.erase()
 
     self.input.setText(interpret_text_input(self.input.text()))
     self.input.setFocus()
 
+  ##
+  # @brief Write value string to input field acording to cursor position
+  #
+  # @param self Object pointer
+  # @param value String value to be added to input field
+  #
   def write_to_input(self, value):
-    ##
-    # @brief Write value string to input field acording to cursor position
-    #
-    # @param self Object pointer
-    # @param value String value to be added to input field
-    #
-
     start_pos = self.input.cursorPosition()
     self.input.setText(self.input.text()[0:start_pos] + value + self.input.text()[start_pos:])
     self.input.setFocus()
     self.input.setCursorPosition(start_pos + len(value))
 
+  ##
+  # @brief Common handler for button presses
+  #
+  # @param self Object pointer
+  #
   def button_pressed(self):
-    ##
-    # @brief Common handler for button presses
-    #
-    # @param self Object pointer
-    #
-
     button = self.sender()
     if self.input.text() == "Error":
       self.erase()
     self.write_to_input(button.text())
 
-
+  ##
+  # @brief Handler for factorial pressed
+  #
+  # @param self Object pointer
+  #
   def factorial_pressed(self):
-    ##
-    # @brief Handler for factorial pressed
-    #
-    # @param self Object pointer
-    #
-
     if self.input.text() == "Error":
       self.erase()
 
     self.write_to_input("fact(")
 
+  ##
+  # @brief Handler for ln pressed
+  #
+  # @param self Object pointer
+  #
   def ln_pressed(self):
-    ##
-    # @brief Handler for ln pressed
-    #
-    # @param self Object pointer
-    #
-
     if self.input.text() == "Error":
       self.erase()
 
     self.write_to_input("ln(")
 
+  ##
+  # @brief Handler for abs pressed
+  #
+  # @param self Object pointer
+  #
   def abs_pressed(self):
-    ##
-    # @brief Handler for abs pressed
-    #
-    # @param self Object pointer
-    #
-
     if self.input.text() == "Error":
       self.erase()
 
     self.write_to_input("abs(")
 
+  ##
+  # @brief Handler for ten power pressed
+  #
+  # @param self Object pointer
+  #
   def ten_power_pressed(self):
-    ##
-    # @brief Handler for ten power pressed
-    #
-    # @param self Object pointer
-    #
-
     if self.input.text() == "Error":
       self.erase()
 
     self.write_to_input("10^")
 
+  ##
+  # @brief Handler for e power pressed
+  #
+  # @param self Object pointer
+  #
   def e_power_pressed(self):
-    ##
-    # @brief Handler for e power pressed
-    #
-    # @param self Object pointer
-    #
-
     if self.input.text() == "Error":
       self.erase()
     self.write_to_input("e^")
 
+  ##
+  # @brief Handler for root handler
+  #
+  # @param self Object pointer
+  #
   def root_pressed(self):
-    ##
-    # @brief Handler for root handler
-    #
-    # @param self Object pointer
-    #
-
     if self.input.text() == "Error":
       self.erase()
     self.write_to_input("√")
 
+  ##
+  # @brief Event handler for keyboard input
+  #
+  # @param self Object pointer
+  # @param event Event object
+  #
   def keyPressEvent(self, event):
-    ##
-    # @brief Event handler for keyboard input
-    #
-    # @param self Object pointer
-    # @param event Event object
-    #
-
     if event.key() == QtCore.Qt.Key_Enter or event.key() == QtCore.Qt.Key_Return:
       self.solve_input()
 
