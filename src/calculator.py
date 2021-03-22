@@ -12,9 +12,8 @@ from mathLib.entry_point import interpret_text_input
 class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
   ##
   # @brief Initialization calculator
-  # Connection between UI and math library
   #
-  # @param self Object pointer
+  # Connection between UI and math library
   #
   def __init__(self):
     super().__init__()
@@ -60,16 +59,12 @@ class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
   ##
   # @brief Erase whole input field
   #
-  # @param self Object pointer
-  #
   def erase(self):
     self.input.setText("")
     self.input.setFocus()
 
   ##
   # @brief Erase one character before cursor in input field
-  #
-  # @param self Object pointer
   #
   def erase_last(self):
     start_pos = self.input.cursorPosition()
@@ -82,8 +77,6 @@ class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
   ##
   # @brief Get content of input field and pass it to math library for parsing
   #
-  # @param self Object pointer
-  #
   def solve_input(self):
     if self.input.text() == "Error":
       self.erase()
@@ -94,7 +87,6 @@ class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
   ##
   # @brief Write value string to input field acording to cursor position
   #
-  # @param self Object pointer
   # @param value String value to be added to input field
   #
   def write_to_input(self, value):
@@ -106,8 +98,6 @@ class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
   ##
   # @brief Common handler for button presses
   #
-  # @param self Object pointer
-  #
   def button_pressed(self):
     button = self.sender()
     if self.input.text() == "Error":
@@ -116,8 +106,6 @@ class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
 
   ##
   # @brief Handler for factorial pressed
-  #
-  # @param self Object pointer
   #
   def factorial_pressed(self):
     if self.input.text() == "Error":
@@ -128,8 +116,6 @@ class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
   ##
   # @brief Handler for ln pressed
   #
-  # @param self Object pointer
-  #
   def ln_pressed(self):
     if self.input.text() == "Error":
       self.erase()
@@ -138,8 +124,6 @@ class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
 
   ##
   # @brief Handler for abs pressed
-  #
-  # @param self Object pointer
   #
   def abs_pressed(self):
     if self.input.text() == "Error":
@@ -150,8 +134,6 @@ class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
   ##
   # @brief Handler for ten power pressed
   #
-  # @param self Object pointer
-  #
   def ten_power_pressed(self):
     if self.input.text() == "Error":
       self.erase()
@@ -161,8 +143,6 @@ class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
   ##
   # @brief Handler for e power pressed
   #
-  # @param self Object pointer
-  #
   def e_power_pressed(self):
     if self.input.text() == "Error":
       self.erase()
@@ -170,8 +150,6 @@ class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
 
   ##
   # @brief Handler for root handler
-  #
-  # @param self Object pointer
   #
   def root_pressed(self):
     if self.input.text() == "Error":
@@ -181,7 +159,6 @@ class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
   ##
   # @brief Event handler for keyboard input
   #
-  # @param self Object pointer
   # @param event Event object
   #
   def keyPressEvent(self, event):
