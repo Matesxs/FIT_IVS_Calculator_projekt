@@ -660,53 +660,53 @@ class MathLibTestInterpreter(unittest.TestCase):
   # @brief Testing interpretation of numbers
   #
   def test_numbers(self):
-    self.assertEqual(self.interpreter.interpret_node_tree(NumberNode(0)), Number(0))
-    self.assertEqual(self.interpreter.interpret_node_tree(NumberNode(256)), Number(256))
-    self.assertEqual(self.interpreter.interpret_node_tree(NumberNode(-128)), Number(-128))
-    self.assertEqual(self.interpreter.interpret_node_tree(NumberNode(-12.65)), Number(-12.65))
-    self.assertEqual(self.interpreter.interpret_node_tree(NumberNode(16.7)), Number(16.7))
-    self.assertEqual(self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.PLUS), NumberNode(10.6))), Number(10.6))
-    self.assertEqual(self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.MINUS), NumberNode(10.6))), Number(-10.6))
+    self.assertEqual(self.interpreter.interpret(NumberNode(0)), Number(0))
+    self.assertEqual(self.interpreter.interpret(NumberNode(256)), Number(256))
+    self.assertEqual(self.interpreter.interpret(NumberNode(-128)), Number(-128))
+    self.assertEqual(self.interpreter.interpret(NumberNode(-12.65)), Number(-12.65))
+    self.assertEqual(self.interpreter.interpret(NumberNode(16.7)), Number(16.7))
+    self.assertEqual(self.interpreter.interpret(UnaryOperationNode(Token(TokenType.PLUS), NumberNode(10.6))), Number(10.6))
+    self.assertEqual(self.interpreter.interpret(UnaryOperationNode(Token(TokenType.MINUS), NumberNode(10.6))), Number(-10.6))
 
   ##
   # @brief Testing interpretation of binary operations
   #
   def test_binary_operations(self):
-    self.assertEqual(self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(3), Token(TokenType.PLUS), NumberNode(5))), Number(8))
-    self.assertEqual(self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(6.25), Token(TokenType.PLUS), NumberNode(2.25))), Number(8.5))
+    self.assertEqual(self.interpreter.interpret(BinaryOperationNode(NumberNode(3), Token(TokenType.PLUS), NumberNode(5))), Number(8))
+    self.assertEqual(self.interpreter.interpret(BinaryOperationNode(NumberNode(6.25), Token(TokenType.PLUS), NumberNode(2.25))), Number(8.5))
 
-    self.assertEqual(self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(3), Token(TokenType.MINUS), NumberNode(5))), Number(-2))
-    self.assertEqual(self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(6.25), Token(TokenType.MINUS), NumberNode(2.25))), Number(4))
+    self.assertEqual(self.interpreter.interpret(BinaryOperationNode(NumberNode(3), Token(TokenType.MINUS), NumberNode(5))), Number(-2))
+    self.assertEqual(self.interpreter.interpret(BinaryOperationNode(NumberNode(6.25), Token(TokenType.MINUS), NumberNode(2.25))), Number(4))
 
-    self.assertEqual(self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(3), Token(TokenType.MULTIPLY), NumberNode(5))), Number(15))
-    self.assertEqual(self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(6.25), Token(TokenType.MULTIPLY), NumberNode(2.25))), Number(14.0625))
+    self.assertEqual(self.interpreter.interpret(BinaryOperationNode(NumberNode(3), Token(TokenType.MULTIPLY), NumberNode(5))), Number(15))
+    self.assertEqual(self.interpreter.interpret(BinaryOperationNode(NumberNode(6.25), Token(TokenType.MULTIPLY), NumberNode(2.25))), Number(14.0625))
 
-    self.assertEqual(self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(3), Token(TokenType.DIVIDE), NumberNode(5))), Number(0.6))
-    self.assertEqual(self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(6.25), Token(TokenType.DIVIDE), NumberNode(2.25))), Number(2.7777777777777777777777777777778))
+    self.assertEqual(self.interpreter.interpret(BinaryOperationNode(NumberNode(3), Token(TokenType.DIVIDE), NumberNode(5))), Number(0.6))
+    self.assertEqual(self.interpreter.interpret(BinaryOperationNode(NumberNode(6.25), Token(TokenType.DIVIDE), NumberNode(2.25))), Number(2.7777777777777777777777777777778))
 
-    self.assertEqual(self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(3), Token(TokenType.POW), NumberNode(5))), Number(243))
-    self.assertEqual(self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(6.25), Token(TokenType.POW), NumberNode(2.25))), Number(61.763235550163658828103389539702))
+    self.assertEqual(self.interpreter.interpret(BinaryOperationNode(NumberNode(3), Token(TokenType.POW), NumberNode(5))), Number(243))
+    self.assertEqual(self.interpreter.interpret(BinaryOperationNode(NumberNode(6.25), Token(TokenType.POW), NumberNode(2.25))), Number(61.763235550163658828103389539702))
 
-    self.assertEqual(self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(5), Token(TokenType.ROOT), NumberNode(3))), Number(1.2457309396155173259666803366403))
-    self.assertEqual(self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(2.25), Token(TokenType.ROOT), NumberNode(6.25))), Number(2.2580026753417055949906722148876))
+    self.assertEqual(self.interpreter.interpret(BinaryOperationNode(NumberNode(5), Token(TokenType.ROOT), NumberNode(3))), Number(1.2457309396155173259666803366403))
+    self.assertEqual(self.interpreter.interpret(BinaryOperationNode(NumberNode(2.25), Token(TokenType.ROOT), NumberNode(6.25))), Number(2.2580026753417055949906722148876))
 
   ##
   # @brief Testing interpretation of unary operations
   #
   def test_unary_operations(self):
-    self.assertEqual(self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.PLUS), NumberNode(0))), Number(0))
-    self.assertEqual(self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.MINUS), NumberNode(0))), Number(0))
-    self.assertEqual(self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.PLUS), NumberNode(10.6))), Number(10.6))
-    self.assertEqual(self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.MINUS), NumberNode(10.6))), Number(-10.6))
+    self.assertEqual(self.interpreter.interpret(UnaryOperationNode(Token(TokenType.PLUS), NumberNode(0))), Number(0))
+    self.assertEqual(self.interpreter.interpret(UnaryOperationNode(Token(TokenType.MINUS), NumberNode(0))), Number(0))
+    self.assertEqual(self.interpreter.interpret(UnaryOperationNode(Token(TokenType.PLUS), NumberNode(10.6))), Number(10.6))
+    self.assertEqual(self.interpreter.interpret(UnaryOperationNode(Token(TokenType.MINUS), NumberNode(10.6))), Number(-10.6))
 
-    self.assertAlmostEqual(self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.KEYWORD, "ln"), NumberNode(5))).get_value(), Number(1.6094379124341003746007593332262).get_value())
-    self.assertAlmostEqual(self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.KEYWORD, "ln"), NumberNode(1.1))).get_value(), Number(0.09531017980432486004395212328077).get_value())
+    self.assertAlmostEqual(self.interpreter.interpret(UnaryOperationNode(Token(TokenType.KEYWORD, "ln"), NumberNode(5))).get_value(), Number(1.6094379124341003746007593332262).get_value())
+    self.assertAlmostEqual(self.interpreter.interpret(UnaryOperationNode(Token(TokenType.KEYWORD, "ln"), NumberNode(1.1))).get_value(), Number(0.09531017980432486004395212328077).get_value())
 
-    self.assertEqual(self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.KEYWORD, "abs"), NumberNode(10.456))), Number(10.456))
-    self.assertEqual(self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.KEYWORD, "abs"), NumberNode(-10.456))), Number(10.456))
+    self.assertEqual(self.interpreter.interpret(UnaryOperationNode(Token(TokenType.KEYWORD, "abs"), NumberNode(10.456))), Number(10.456))
+    self.assertEqual(self.interpreter.interpret(UnaryOperationNode(Token(TokenType.KEYWORD, "abs"), NumberNode(-10.456))), Number(10.456))
 
-    self.assertEqual(self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.KEYWORD, "fact"), NumberNode(5))), Number(120))
-    self.assertEqual(self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.KEYWORD, "fact"), NumberNode(0))), Number(1))
+    self.assertEqual(self.interpreter.interpret(UnaryOperationNode(Token(TokenType.KEYWORD, "fact"), NumberNode(5))), Number(120))
+    self.assertEqual(self.interpreter.interpret(UnaryOperationNode(Token(TokenType.KEYWORD, "fact"), NumberNode(0))), Number(1))
 
   ##
   # @brief Testing interpretation of invalid function parameters
@@ -714,35 +714,35 @@ class MathLibTestInterpreter(unittest.TestCase):
   def test_invalid_cases(self):
     # Result is imaginary number that is not supported
     with self.assertRaises(RuntimeError):
-      self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(2.25), Token(TokenType.ROOT), NumberNode(-6.25)))
+      self.interpreter.interpret(BinaryOperationNode(NumberNode(2.25), Token(TokenType.ROOT), NumberNode(-6.25)))
 
     with self.assertRaises(RuntimeError):
-      self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(0), Token(TokenType.ROOT), NumberNode(6.25)))
+      self.interpreter.interpret(BinaryOperationNode(NumberNode(0), Token(TokenType.ROOT), NumberNode(6.25)))
 
     with self.assertRaises(RuntimeError):
-      self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(6.25), Token(TokenType.DIVIDE), NumberNode(0)))
+      self.interpreter.interpret(BinaryOperationNode(NumberNode(6.25), Token(TokenType.DIVIDE), NumberNode(0)))
 
     with self.assertRaises(RuntimeError):
-      self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.KEYWORD, "ln"), NumberNode(0)))
+      self.interpreter.interpret(UnaryOperationNode(Token(TokenType.KEYWORD, "ln"), NumberNode(0)))
 
     with self.assertRaises(RuntimeError):
-      self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.KEYWORD, "ln"), NumberNode(-2.5)))
+      self.interpreter.interpret(UnaryOperationNode(Token(TokenType.KEYWORD, "ln"), NumberNode(-2.5)))
 
     with self.assertRaises(RuntimeError):
-      self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.KEYWORD, "fact"), NumberNode(-2)))
+      self.interpreter.interpret(UnaryOperationNode(Token(TokenType.KEYWORD, "fact"), NumberNode(-2)))
 
     with self.assertRaises(RuntimeError):
-      self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.KEYWORD, "fact"), NumberNode(3.35)))
+      self.interpreter.interpret(UnaryOperationNode(Token(TokenType.KEYWORD, "fact"), NumberNode(3.35)))
 
   ##
   # @brief Testing interpretation of unknown tokens
   #
   def test_invalid_operations(self):
     with self.assertRaises(RuntimeError):
-      self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.KEYWORD, "fasfafasfa"), NumberNode(3.35)))
+      self.interpreter.interpret(UnaryOperationNode(Token(TokenType.KEYWORD, "fasfafasfa"), NumberNode(3.35)))
 
     with self.assertRaises(RuntimeError):
-      self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(8), Token(TokenType.KEYWORD, "wtwtta"), NumberNode(3.35)))
+      self.interpreter.interpret(BinaryOperationNode(NumberNode(8), Token(TokenType.KEYWORD, "wtwtta"), NumberNode(3.35)))
 
 ##
 # @brief Testing entrypoint for UI

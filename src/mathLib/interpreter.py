@@ -1,10 +1,17 @@
+##
+# @package interpreter
+#
+
 from .basics.number_class import Number
 from .basics.nodes import *
 from .basics.tokens import TokenType
 from .basics.math_functions import MathFunctions
 
+##
+# @brief Interpreter class for executing functions based on input node tree
+#
 class Interpreter:
-  def interpret_node_tree(self, node) -> Number:
+  def interpret(self, node:Node) -> Number:
     func_name = f"visit_{type(node).__name__}"
     function = getattr(self, func_name, self.no_visit_method)
     return function(node)
@@ -16,7 +23,7 @@ class Interpreter:
     return Number(node.value)
 
   def visit_UnaryOperationNode(self, node:UnaryOperationNode):
-    number = self.interpret_node_tree(node.value).get_value()
+    number = self.interpret(node.value).get_value()
 
     if node.operation_token.type == TokenType.MINUS:
       return Number(MathFunctions.invert_operation(number))
@@ -32,8 +39,8 @@ class Interpreter:
     raise RuntimeError(f"Unknown unary operation token: {node.operation_token}")
 
   def visit_BinaryOperationNode(self, node:BinaryOperationNode):
-    number1 = self.interpret_node_tree(node.value1).get_value()
-    number2 = self.interpret_node_tree(node.value2).get_value()
+    number1 = self.interpret(node.value1).get_value()
+    number2 = self.interpret(node.value2).get_value()
 
     if node.operation_token.type == TokenType.PLUS:
       return Number(MathFunctions.add_operation(number1, number2))
