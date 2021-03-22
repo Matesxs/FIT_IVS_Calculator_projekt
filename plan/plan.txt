@@ -16,12 +16,13 @@ Termíny:
 8)  Parser
 9)  Testy interpreteru
 10) Interpreter
-11) Testy endpointu
+11) Testy endpointu, kontrola tokenizer - interpreter
 12) Endpoint
 13) Kontrola testů a edgecasů, doplnění makefile
 14) UI, profiling
 15) Integrace mat knihovny do UI
 16) Testování
 17) Kontrola dokumentace, manuál, finalizace makefile
+18) Mocup - pokud vyjde čas
 
 Rozdělení práce:
