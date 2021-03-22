@@ -8,6 +8,12 @@
     </p>
 </div>
 
+## About
+
+Simple calculator made in python using buildin math library, buildin functions and Qt for UI.
+This software is targeted for **Windows** because it's platfor all of us using but in theory you can use it on whatever
+system with graphical interface you want because python can run almost anywhere.
+
 ## Getting Started
 
 If you want to play with code yourself clone this repository like this
