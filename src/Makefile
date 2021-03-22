@@ -18,7 +18,7 @@ pack: build doc
 	python utils/pack_files.py
 	rmdir /q /s "..\..\xdousa00_xslama32_xschin05"
 
-doc FORCE:
+doc: FORCE
 	python utils/create_folder.py "..\docs"
 	Doxygen Doxyfile
 
