@@ -11,25 +11,12 @@ class MathLibTestAdd(unittest.TestCase):
     self.assertEqual(mathLib.MathFunctions.add_operation(0, 5), 5)
     self.assertEqual(mathLib.MathFunctions.add_operation(2, 0), 2)
     self.assertEqual(mathLib.MathFunctions.add_operation(1, 3), 4)
-    self.assertEqual(mathLib.MathFunctions.add_operation(1111, 500), 1611)
 
   def test_add_negative(self):
     self.assertEqual(mathLib.MathFunctions.add_operation(-1, -2), -3)
     self.assertEqual(mathLib.MathFunctions.add_operation(-5, 0), -5)
     self.assertEqual(mathLib.MathFunctions.add_operation(0, -8), -8)
-    self.assertEqual(mathLib.MathFunctions.add_operation(-255, -255), -510)
-
-  def test_add_positive_negative(self):
-    self.assertEqual(mathLib.MathFunctions.add_operation(-5, 10), 5)
-    self.assertEqual(mathLib.MathFunctions.add_operation(-12, 10), -2)
-    self.assertEqual(mathLib.MathFunctions.add_operation(2, -10), -8)
-    self.assertEqual(mathLib.MathFunctions.add_operation(3, -1), 2)
-    self.assertEqual(mathLib.MathFunctions.add_operation(-12, 12), 0)
-
-  def test_add_decimal(self):
-    self.assertEqual(mathLib.MathFunctions.add_operation(-1.2, 4.2), 3)
-    self.assertEqual(mathLib.MathFunctions.add_operation(6.7, -2.2), 4.5)
-    self.assertEqual(mathLib.MathFunctions.add_operation(-5.2, -2.7), -7.9)
+    self.assertEqual(mathLib.MathFunctions.add_operation(-20, -33), -53)
 
   def test_add_mixed(self):
     self.assertEqual(mathLib.MathFunctions.add_operation(-5, 2.4), -2.6)
@@ -52,18 +39,6 @@ class MathLibTestSub(unittest.TestCase):
     self.assertEqual(mathLib.MathFunctions.sub_operation(-2, -6), 4)
     self.assertEqual(mathLib.MathFunctions.sub_operation(-600, -820), 220)
 
-  def test_sub_positive_negative(self):
-    self.assertEqual(mathLib.MathFunctions.sub_operation(-6, 5), -11)
-    self.assertEqual(mathLib.MathFunctions.sub_operation(5, 2), 3)
-    self.assertEqual(mathLib.MathFunctions.sub_operation(3, -6), 9)
-    self.assertEqual(mathLib.MathFunctions.sub_operation(-25, -6), -19)
-    self.assertEqual(mathLib.MathFunctions.sub_operation(-300, 120), -420)
-
-  def test_sub_decimal(self):
-    self.assertEqual(mathLib.MathFunctions.sub_operation(-2.3, 2.6), -4.9)
-    self.assertEqual(mathLib.MathFunctions.sub_operation(6.4, 1.2), 5.2)
-    self.assertEqual(mathLib.MathFunctions.sub_operation(3.8, -0.2), 4)
-
   def test_sub_mixed(self):
     self.assertEqual(mathLib.MathFunctions.sub_operation(-6, 2.4), -8.4)
     self.assertEqual(mathLib.MathFunctions.sub_operation(-1.2, 4), -5.2)
@@ -73,35 +48,17 @@ class MathLibTestSub(unittest.TestCase):
 class MathLibTestMult(unittest.TestCase):
   def test_mult_positive(self):
     self.assertEqual(mathLib.MathFunctions.multiply_operation(0, 0), 0)
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(5, 0), 0)
     self.assertEqual(mathLib.MathFunctions.multiply_operation(255, 0), 0)
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(3, 1), 3)
     self.assertEqual(mathLib.MathFunctions.multiply_operation(6, 3), 18)
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(1, 10), 10)
     self.assertEqual(mathLib.MathFunctions.multiply_operation(0, 10), 0)
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(0, 60), 0)
     self.assertEqual(mathLib.MathFunctions.multiply_operation(11, 11), 121)
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(600, 33), 19800)
 
   def test_mult_negative(self):
     self.assertEqual(mathLib.MathFunctions.multiply_operation(-1, 0), 0)
     self.assertEqual(mathLib.MathFunctions.multiply_operation(0, -5), 0)
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(-3, -2), 6)
     self.assertEqual(mathLib.MathFunctions.multiply_operation(0, -300), 0)
     self.assertEqual(mathLib.MathFunctions.multiply_operation(-245, 0), 0)
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(-10, -2), 20)
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(-3, -3), 9)
     self.assertEqual(mathLib.MathFunctions.multiply_operation(-33, -45), 1485)
-
-  def test_mult_positive_negative(self):
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(-10, 2), -20)
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(2, -8), -16)
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(-44, 22), -968)
-
-  def test_mult_decimal(self):
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(2.2, 4.6), 10.12)
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(-6.3, 3.5), -22.05)
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(2.1, -4.6), -9.66)
 
   def test_mult_mixed(self):
     self.assertEqual(mathLib.MathFunctions.multiply_operation(-4.5, 4), -18)
@@ -114,20 +71,93 @@ class MathLibTestDiv(unittest.TestCase):
   def test_div_positive(self):
     self.assertEqual(mathLib.MathFunctions.divide_operation(0, 5), 0)
     self.assertEqual(mathLib.MathFunctions.divide_operation(20, 5), 4)
-    self.assertEqual(mathLib.MathFunctions.divide_operation(3, 3), 1)
     self.assertEqual(mathLib.MathFunctions.divide_operation(6, 4), 1.5)
     self.assertEqual(mathLib.MathFunctions.divide_operation(2, 20), 0.1)
     self.assertEqual(mathLib.MathFunctions.divide_operation(500, 40), 12.5)
+
+  def test_div_negative(self):
+    self.assertEqual(mathLib.MathFunctions.divide_operation(-5, 5), -1)
+    self.assertEqual(mathLib.MathFunctions.divide_operation(0, -5), 0)
+    self.assertEqual(mathLib.MathFunctions.divide_operation(9, -3), -3)
+    self.assertEqual(mathLib.MathFunctions.divide_operation(-36, -4), 9)
+    self.assertEqual(mathLib.MathFunctions.divide_operation(3, -5), -0.6)
+    
+  def test_div_mixed(self):
+    self.assertEqual(mathLib.MathFunctions.divide_operation(6.2, 4), 1.55)
+    self.assertEqual(mathLib.MathFunctions.divide_operation(3, -6.5), -0.46153846153846153846153846153846)
+    self.assertEqual(mathLib.MathFunctions.divide_operation(-5.5, -6.5), 0.84615384615384615384615384615385)
 
   def test_division_by_zero(self):
     with self.assertRaises(RuntimeError):
       mathLib.MathFunctions.divide_operation(3, 0)
 
+class MathLibTestPow(unittest.TestCase):
+  def test_pow_op_with_zero(self):
+    self.assertEqual(mathLib.MathFunctions.power_operation(0, 0), 1)
+    self.assertEqual(mathLib.MathFunctions.power_operation(0, 12), 0)
+    self.assertEqual(mathLib.MathFunctions.power_operation(12, 0), 1)
+
+  def test_pow_positive(self):
+    self.assertEqual(mathLib.MathFunctions.power_operation(2, 2), 4)
+    self.assertEqual(mathLib.MathFunctions.power_operation(2.4, 2), 5.76)
+    self.assertEqual(mathLib.MathFunctions.power_operation(2.4, 4.52), 52.306397819793965)
+
+  def test_pow_negative(self):
+    self.assertEqual(mathLib.MathFunctions.power_operation(2, -2), 0.25)
+    self.assertEqual(mathLib.MathFunctions.power_operation(-2, 2), 4)
+    self.assertEqual(mathLib.MathFunctions.power_operation(-2, -2), 0.25)
+    self.assertEqual(mathLib.MathFunctions.power_operation(-2.32, -3), -0.08008220919266884)
+    
+class MathLibTestRoot(unittest.TestCase):
+  def test_root_positive(self):
+    self.assertEqual(mathLib.MathFunctions.root_operation(0, 8), 0)
+    self.assertEqual(mathLib.MathFunctions.root_operation(4, 2), 2)
+    self.assertEqual(mathLib.MathFunctions.root_operation(2.2, 8), 1.1035774941665433)
+    self.assertEqual(mathLib.MathFunctions.root_operation(3.25, 4.8), 1.2783281919978795)
+
+  def test_root_negative(self):
+    self.assertEqual(mathLib.MathFunctions.root_operation(4, -2), 0.5)
+    self.assertEqual(mathLib.MathFunctions.root_operation(3.45, -3.15), 0.6749378431838611)
+
+  def test_root_invalid_cases(self):
     with self.assertRaises(RuntimeError):
-      self.assertRaises(mathLib.MathFunctions.divide_operation(600, 0))
+      mathLib.MathFunctions.root_operation(-5, 2)
 
-  # TODO: Continue
+    with self.assertRaises(RuntimeError):
+      mathLib.MathFunctions.root_operation(2, 0)
+      
+class MathLibTestLn(unittest.TestCase):
+  def test_ln(self):
+    self.assertEqual(mathLib.MathFunctions.natural_log_operation(1), 0)
+    self.assertEqual(mathLib.MathFunctions.natural_log_operation(0.5), -0.6931471805599453)
+    self.assertEqual(mathLib.MathFunctions.natural_log_operation(1.2), 0.1823215567939546)
+    self.assertEqual(mathLib.MathFunctions.natural_log_operation(4), 1.3862943611198906)
 
+  def test_ln_invalid_cases(self):
+    with self.assertRaises(RuntimeError):
+      mathLib.MathFunctions.natural_log_operation(0)
+
+    with self.assertRaises(RuntimeError):
+      mathLib.MathFunctions.natural_log_operation(-1)
+
+    with self.assertRaises(RuntimeError):
+      mathLib.MathFunctions.natural_log_operation(-2.25)
+
+class MathLibTestFact(unittest.TestCase):
+  def test_fact_positive_whole_numbers(self):
+    self.assertEqual(mathLib.MathFunctions.factorial_operation(0), 1)
+    self.assertEqual(mathLib.MathFunctions.factorial_operation(1), 1)
+    self.assertEqual(mathLib.MathFunctions.factorial_operation(4), 24)
+
+  def test_fact_invalid_cases(self):
+    with self.assertRaises(RuntimeError):
+      mathLib.MathFunctions.factorial_operation(3.35)
+
+    with self.assertRaises(RuntimeError):
+      mathLib.MathFunctions.factorial_operation(-5)
+
+    with self.assertRaises(RuntimeError):
+      mathLib.MathFunctions.factorial_operation(-4.2)
 
 class MathLibTestTokenizer(unittest.TestCase):
   def test_empty(self):
@@ -266,13 +296,14 @@ class MathLibTestParser(unittest.TestCase):
     self.assertEqual(Parser([Token(TokenType.KEYWORD, "fact"), Token(TokenType.NUMBER, 11)]).parse(), UnaryOperationNode(Token(TokenType.KEYWORD, "fact"), NumberNode(11)))
     self.assertEqual(Parser([Token(TokenType.KEYWORD, "ln"), Token(TokenType.NUMBER, 11)]).parse(), UnaryOperationNode(Token(TokenType.KEYWORD, "ln"), NumberNode(11)))
 
-  def test_parents(self):
+  def test_valid_parents(self):
     self.assertEqual(Parser([Token(TokenType.LPAREN), Token(TokenType.NUMBER, 25), Token(TokenType.PLUS), Token(TokenType.NUMBER, 50), Token(TokenType.RPAREN)]).parse(),
                      BinaryOperationNode(NumberNode(25), Token(TokenType.PLUS), NumberNode(50)))
 
     self.assertEqual(Parser([Token(TokenType.LPAREN), Token(TokenType.NUMBER, 25), Token(TokenType.PLUS), Token(TokenType.NUMBER, 50), Token(TokenType.RPAREN), Token(TokenType.PLUS), Token(TokenType.LPAREN), Token(TokenType.NUMBER, 25), Token(TokenType.PLUS), Token(TokenType.NUMBER, 50), Token(TokenType.RPAREN)]).parse(),
                      BinaryOperationNode(BinaryOperationNode(NumberNode(25), Token(TokenType.PLUS), NumberNode(50)), Token(TokenType.PLUS), BinaryOperationNode(NumberNode(25), Token(TokenType.PLUS), NumberNode(50))))
 
+  def test_invalid_parents(self):
     with self.assertRaises(SyntaxError):
       Parser([Token(TokenType.LPAREN), Token(TokenType.NUMBER, 25), Token(TokenType.PLUS), Token(TokenType.NUMBER, 50)]).parse()
 
