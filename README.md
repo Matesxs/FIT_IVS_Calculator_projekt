@@ -12,7 +12,7 @@
 
 If you want to play with code yourself clone this repository like this
 ```
-git clone <TODO>
+git clone https://github.com/Matesxs/ivs_calculator_test_repository
 ```
 
 ## Tools
