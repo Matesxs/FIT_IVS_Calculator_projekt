@@ -1,4 +1,4 @@
-all: pip test run
+all: build pip test run
 
 pip:
 	pip freeze
