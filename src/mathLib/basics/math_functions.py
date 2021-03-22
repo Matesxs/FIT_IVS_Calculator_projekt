@@ -24,14 +24,14 @@ class MathFunctions:
     return num1 ** num2
 
   @staticmethod
-  def root_operation(num1, num2):
-    if num1 < 0:
-      raise RuntimeError("Root base can't be less than zero")
+  def root_operation(n, root):
+    if root < 0:
+      raise RuntimeError("Base value of root can't be less than zero")
 
-    if num2 == 0:
-      raise RuntimeError("Root with base of zero is not defined")
+    if n == 0:
+      raise RuntimeError("N value of root can't be zero")
 
-    return num1 ** (1 / num2)
+    return root ** (1 / n)
 
   @staticmethod
   def invert_operation(num):

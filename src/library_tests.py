@@ -110,21 +110,21 @@ class MathLibTestPow(unittest.TestCase):
     
 class MathLibTestRoot(unittest.TestCase):
   def test_root_positive(self):
-    self.assertEqual(mathLib.MathFunctions.root_operation(0, 8), 0)
-    self.assertEqual(mathLib.MathFunctions.root_operation(4, 2), 2)
-    self.assertEqual(mathLib.MathFunctions.root_operation(2.2, 8), 1.1035774941665433)
-    self.assertEqual(mathLib.MathFunctions.root_operation(3.25, 4.8), 1.2783281919978795)
+    self.assertEqual(mathLib.MathFunctions.root_operation(8, 0), 0)
+    self.assertEqual(mathLib.MathFunctions.root_operation(2, 4), 2)
+    self.assertEqual(mathLib.MathFunctions.root_operation(8, 2.2), 1.1035774941665433)
+    self.assertEqual(mathLib.MathFunctions.root_operation(4.8, 3.25), 1.2783281919978795)
 
   def test_root_negative(self):
-    self.assertEqual(mathLib.MathFunctions.root_operation(4, -2), 0.5)
-    self.assertEqual(mathLib.MathFunctions.root_operation(3.45, -3.15), 0.6749378431838611)
+    self.assertEqual(mathLib.MathFunctions.root_operation(-2, 4), 0.5)
+    self.assertEqual(mathLib.MathFunctions.root_operation(-3.15, 3.45), 0.6749378431838611)
 
   def test_root_invalid_cases(self):
     with self.assertRaises(RuntimeError):
-      mathLib.MathFunctions.root_operation(-5, 2)
+      mathLib.MathFunctions.root_operation(2, -5)
 
     with self.assertRaises(RuntimeError):
-      mathLib.MathFunctions.root_operation(2, 0)
+      mathLib.MathFunctions.root_operation(0, 2)
       
 class MathLibTestLn(unittest.TestCase):
   def test_ln(self):
@@ -464,8 +464,8 @@ class MathLibTestInterpreter(unittest.TestCase):
     self.assertEqual(self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(3), Token(TokenType.POW), NumberNode(5))), Number(243))
     self.assertEqual(self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(6.25), Token(TokenType.POW), NumberNode(2.25))), Number(61.763235550163658828103389539702))
 
-    self.assertEqual(self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(3), Token(TokenType.ROOT), NumberNode(5))), Number(1.2457309396155173259666803366403))
-    self.assertEqual(self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(6.25), Token(TokenType.ROOT), NumberNode(2.25))), Number(2.2580026753417055949906722148876))
+    self.assertEqual(self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(5), Token(TokenType.ROOT), NumberNode(3))), Number(1.2457309396155173259666803366403))
+    self.assertEqual(self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(2.25), Token(TokenType.ROOT), NumberNode(6.25))), Number(2.2580026753417055949906722148876))
 
   def test_unary_operations(self):
     self.assertEqual(self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.PLUS), NumberNode(0))), Number(0))
@@ -485,13 +485,13 @@ class MathLibTestInterpreter(unittest.TestCase):
   def test_invalid_cases(self):
     # Result is imaginary number that is not supported
     with self.assertRaises(RuntimeError):
-      self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(-6.25), Token(TokenType.ROOT), NumberNode(2.25)))
+      self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(2.25), Token(TokenType.ROOT), NumberNode(-6.25)))
+
+    with self.assertRaises(RuntimeError):
+      self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(0), Token(TokenType.ROOT), NumberNode(6.25)))
 
     with self.assertRaises(RuntimeError):
       self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(6.25), Token(TokenType.DIVIDE), NumberNode(0)))
-
-    with self.assertRaises(RuntimeError):
-      self.interpreter.interpret_node_tree(BinaryOperationNode(NumberNode(6.25), Token(TokenType.ROOT), NumberNode(0)))
 
     with self.assertRaises(RuntimeError):
       self.interpreter.interpret_node_tree(UnaryOperationNode(Token(TokenType.KEYWORD, "ln"), NumberNode(0)))
@@ -562,11 +562,11 @@ class MathLibTestExpressions(unittest.TestCase):
     self.assertEqual(interpret_text_input("-10^2.65"), "-446.683592150963")
 
   def test_solve_root_expressions(self):
-    self.assertEqual(interpret_text_input("4√2"), "2")
-    self.assertEqual(interpret_text_input("0√2"), "0")
-    self.assertEqual(interpret_text_input("4√-2"), "0.5")
-    self.assertEqual(interpret_text_input("4.25√1"), "4.25")
-    self.assertEqual(interpret_text_input("8.48√-4"), "0.5860046159133241")
+    self.assertEqual(interpret_text_input("2√4"), "2")
+    self.assertEqual(interpret_text_input("2√0"), "0")
+    self.assertEqual(interpret_text_input("(-2)√4"), "0.5")
+    self.assertEqual(interpret_text_input("1√4.25"), "4.25")
+    self.assertEqual(interpret_text_input("(-4)√8.48"), "0.5860046159133241")
 
   def test_solve_ln_expressions(self):
     self.assertEqual(interpret_text_input("ln 1"), "0")
@@ -594,8 +594,8 @@ class MathLibTestExpressions(unittest.TestCase):
   def test_invalid_expressions(self):
     self.assertEqual(interpret_text_input("10.25 / 0"), "Error")
 
-    self.assertEqual(interpret_text_input("(-25.3)√2"), "Error")
-    self.assertEqual(interpret_text_input("4√0"), "Error")
+    self.assertEqual(interpret_text_input("2√-25.3"), "Error")
+    self.assertEqual(interpret_text_input("0√4"), "Error")
 
     self.assertEqual(interpret_text_input("ln 0"), "Error")
     self.assertEqual(interpret_text_input("ln -15"), "Error")

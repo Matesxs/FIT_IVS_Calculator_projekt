@@ -61,6 +61,7 @@ class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
       self.erase()
 
     self.input.setText(interpret_text_input(self.input.text()))
+    self.input.setFocus()
 
   def write_to_input(self, value):
     start_pos = self.input.cursorPosition()
@@ -114,4 +115,4 @@ class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
       self.solve_input()
 
     if event.key() == QtCore.Qt.Key_Escape:
-      self.close()
+      self.erase()
