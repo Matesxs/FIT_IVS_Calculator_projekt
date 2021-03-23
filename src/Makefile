@@ -50,5 +50,7 @@ build: FORCE
 	pyinstaller --onefile --noconsole --clean -n Calculator main.py
 	python utils/create_folder.py "..\install"
 	copy dist\Calculator.exe ..\install\Calculator.exe
+	python utils/remove.py "build"
+	python utils/remove.py "dist"
 
 FORCE:
