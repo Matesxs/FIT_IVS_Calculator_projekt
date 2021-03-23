@@ -52,5 +52,6 @@ build: FORCE
 	copy dist\Calculator.exe ..\install\Calculator.exe
 	python utils/remove.py "build"
 	python utils/remove.py "dist"
+	python utils/remove.py "Calculator.spec"
 
 FORCE:
