@@ -1,21 +1,43 @@
+##
+# @package tokenizer
+#
+
 from .basics.constants import DIGITS, WHITE_SPACE, LATTERS, KEYWORDS
 from .basics.iterator import Iterator
 from .basics.tokens import Token, TokenType
 
+##
+# @brief Tokenizer class for assigning each character/string its mean
+#
 class Tokenizer:
+  ##
+  # @brief Init tokenizer with input text to tokenize
+  #
+  # Initialize iterator and load first character
+  #
   def __init__(self, text_input:str):
     self.text_iterator = Iterator(text_input)
 
     self.current_character = None
     self.move_forward()
 
+  ##
+  # @brief Call for next char in string
+  #
   def move_forward(self):
     try:
       self.current_character = self.text_iterator.next()
     except:
       self.current_character = None
 
-  def parse_input_text(self):
+  ##
+  # @brief Start tokenizing process
+  #
+  # Go thru each token and assign type to it based on its value
+  #
+  # @return List of tokens
+  #
+  def tokenize(self):
     tokens = []
 
     while self.current_character is not None:
@@ -60,12 +82,14 @@ class Tokenizer:
         tokens.append(Token(TokenType.RPAREN))
 
       else:
-        res = self.parse_keyword()
-        if not res:
-          raise SyntaxError("Found invalid tokens in input")
-        tokens.append(res)
+        tokens.append(self.parse_keyword())
     return tokens
 
+  ##
+  # @brief Get number token from string
+  #
+  # @return Token of type NUMBER
+  #
   def parse_number_token(self):
     number_string = self.current_character
     decimal_place_token_found = self.current_character == "."
@@ -88,6 +112,14 @@ class Tokenizer:
 
     return Token(TokenType.NUMBER, float(number_string))
 
+  ##
+  # @brief Get keyword tokens from string
+  #
+  # If current token dont belong to other categories then we will try add them together as keyword token \n
+  # Keyword token is created only if its value is in list of keywords
+  #
+  # @return Token of KEYWORD type with value from string
+  #
   def parse_keyword(self):
     if self.current_character not in LATTERS:
       return None
@@ -101,4 +133,4 @@ class Tokenizer:
 
     if string_val in KEYWORDS:
       return Token(TokenType.KEYWORD, string_val)
-    return None
+    raise SyntaxError("Found invalid tokens in input")

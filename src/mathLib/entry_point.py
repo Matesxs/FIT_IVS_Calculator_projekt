@@ -16,7 +16,7 @@ def interpret_text_input(text:str):
   tokenizer = Tokenizer(text)
 
   try:
-    tokens = tokenizer.parse_input_text()
+    tokens = tokenizer.tokenize()
   except:
     return "Error"
 

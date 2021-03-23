@@ -286,17 +286,17 @@ class MathLibTestTokenizer(unittest.TestCase):
   # @brief Test empty input string
   #
   def test_empty(self):
-    self.assertEqual(Tokenizer("").parse_input_text(), [])
-    self.assertEqual(Tokenizer("     ").parse_input_text(), [])
-    self.assertEqual(Tokenizer("\t\t\t").parse_input_text(), [])
-    self.assertEqual(Tokenizer("\n\n\n\n\n").parse_input_text(), [])
-    self.assertEqual(Tokenizer("\t   \t\t\t  \n\t\n  \n").parse_input_text(), [])
+    self.assertEqual(Tokenizer("").tokenize(), [])
+    self.assertEqual(Tokenizer("     ").tokenize(), [])
+    self.assertEqual(Tokenizer("\t\t\t").tokenize(), [])
+    self.assertEqual(Tokenizer("\n\n\n\n\n").tokenize(), [])
+    self.assertEqual(Tokenizer("\t   \t\t\t  \n\t\n  \n").tokenize(), [])
 
   ##
   # @brief Test multiple decimal dots as series of zeroes
   #
   def test_multidecimal(self):
-    self.assertEqual(Tokenizer("...").parse_input_text(), [
+    self.assertEqual(Tokenizer("...").tokenize(), [
       Token(TokenType.NUMBER, 0.0),
       Token(TokenType.NUMBER, 0.0),
       Token(TokenType.NUMBER, 0.0)
@@ -307,13 +307,13 @@ class MathLibTestTokenizer(unittest.TestCase):
   #
   def test_invalid_chars(self):
     with self.assertRaises(SyntaxError):
-      Tokenizer("&;`#%").parse_input_text()
+      Tokenizer("&;`#%").tokenize()
 
   ##
   # @brief Test number input
   #
   def test_numbers(self):
-    tokens = Tokenizer("124 256.123 999. .256 . 00000000000000.321").parse_input_text()
+    tokens = Tokenizer("124 256.123 999. .256 . 00000000000000.321").tokenize()
     self.assertEqual(tokens, [
       Token(TokenType.NUMBER, 124),
       Token(TokenType.NUMBER, 256.123),
@@ -327,7 +327,7 @@ class MathLibTestTokenizer(unittest.TestCase):
   # @brief Test operators
   #
   def test_operators(self):
-    tokens = Tokenizer("+-*/√^").parse_input_text()
+    tokens = Tokenizer("+-*/√^").tokenize()
     self.assertEqual(tokens, [
       Token(TokenType.PLUS),
       Token(TokenType.MINUS),
@@ -341,7 +341,7 @@ class MathLibTestTokenizer(unittest.TestCase):
   # @brief Test keywords
   #
   def test_keywords(self):
-    tokens = Tokenizer("rand ln fact abs e").parse_input_text()
+    tokens = Tokenizer("rand ln fact abs e").tokenize()
     self.assertEqual(tokens, [
       Token(TokenType.KEYWORD, "rand"),
       Token(TokenType.KEYWORD, "ln"),
@@ -354,13 +354,13 @@ class MathLibTestTokenizer(unittest.TestCase):
   # @brief Test parentecies
   #
   def test_parents(self):
-    tokens = Tokenizer("()").parse_input_text()
+    tokens = Tokenizer("()").tokenize()
     self.assertEqual(tokens, [
       Token(TokenType.LPAREN),
       Token(TokenType.RPAREN)
     ])
 
-    tokens = Tokenizer("(()())").parse_input_text()
+    tokens = Tokenizer("(()())").tokenize()
     self.assertEqual(tokens, [
       Token(TokenType.LPAREN),
       Token(TokenType.LPAREN),
@@ -370,7 +370,7 @@ class MathLibTestTokenizer(unittest.TestCase):
       Token(TokenType.RPAREN)
     ])
 
-    tokens = Tokenizer("((()").parse_input_text()
+    tokens = Tokenizer("((()").tokenize()
     self.assertEqual(tokens, [
       Token(TokenType.LPAREN),
       Token(TokenType.LPAREN),
@@ -379,7 +379,7 @@ class MathLibTestTokenizer(unittest.TestCase):
     ])
 
   def test_combined(self):
-    tokens = Tokenizer("25 + 33 * ln(55)^2 * (33 - 11.22) + e / abs(36 - fact(5)) + rand").parse_input_text()
+    tokens = Tokenizer("25 + 33 * ln(55)^2 * (33 - 11.22) + e / abs(36 - fact(5)) + rand").tokenize()
     self.assertEqual(tokens, [
       Token(TokenType.NUMBER, 25),
       Token(TokenType.PLUS),
@@ -418,13 +418,13 @@ class MathLibTestTokenizer(unittest.TestCase):
   #
   def test_invalid_expressions(self):
     with self.assertRaises(SyntaxError):
-      Tokenizer("randlnfactabse").parse_input_text()
+      Tokenizer("randlnfactabse").tokenize()
 
     with self.assertRaises(SyntaxError):
-      Tokenizer("rand 956. tan 14").parse_input_text()
+      Tokenizer("rand 956. tan 14").tokenize()
 
     with self.assertRaises(SyntaxError):
-      Tokenizer("25 + 33 * l(55)^2 * (33 - 11.22) + e").parse_input_text()
+      Tokenizer("25 + 33 * l(55)^2 * (33 - 11.22) + e").tokenize()
 
 ##
 # @brief Testing Parser class of math library
