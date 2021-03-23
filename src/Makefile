@@ -1,7 +1,6 @@
-all: build pip test run
+.PHONY: all run pack clean doc profile profile_with_log test test_with_coverage init build
 
-pip:
-	pip freeze
+all: init run
 
 run:
 	python main.py
@@ -17,7 +16,7 @@ pack: build doc
 	python utils/pack_files.py
 	rmdir /q /s "..\..\xdousa00_xslama32_xschin05"
 
-clean: FORCE
+clean:
 	python utils/remove.py "..\docs"
 	python utils/remove.py "..\install"
 	python utils/remove.py "build"
@@ -25,7 +24,7 @@ clean: FORCE
 	python utils/remove.py "Calculator.spec"
 	python utils/remove.py ".coverage"
 
-doc: FORCE
+doc:
 	python utils/create_folder.py "..\docs"
 	Doxygen Doxyfile
 
@@ -46,12 +45,10 @@ test_with_coverage:
 init:
 	pip install -r requirements.txt
 
-build: FORCE
+build:
 	pyinstaller --onefile --noconsole --clean -n Calculator main.py
 	python utils/create_folder.py "..\install"
 	copy dist\Calculator.exe ..\install\Calculator.exe
 	python utils/remove.py "build"
 	python utils/remove.py "dist"
 	python utils/remove.py "Calculator.spec"
-
-FORCE:
