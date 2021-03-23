@@ -615,6 +615,28 @@ class MathLibTestParser(unittest.TestCase):
     with self.assertRaises(SyntaxError):
       Parser([Token(TokenType.KEYWORD, "fact")]).parse()
 
+  def test_invalid_multi_operations(self):
+    with self.assertRaises(SyntaxError):
+      Parser([Token(TokenType.MULTIPLY), Token(TokenType.MULTIPLY), Token(TokenType.NUMBER, 10)]).parse()
+
+    with self.assertRaises(SyntaxError):
+      Parser([Token(TokenType.DIVIDE), Token(TokenType.NUMBER, 10), Token(TokenType.MULTIPLY)]).parse()
+
+    with self.assertRaises(SyntaxError):
+      Parser([Token(TokenType.NUMBER, 10), Token(TokenType.MULTIPLY), Token(TokenType.MULTIPLY), Token(TokenType.DIVIDE)]).parse()
+
+    with self.assertRaises(SyntaxError):
+      Parser([Token(TokenType.POW), Token(TokenType.POW), Token(TokenType.NUMBER, 10)]).parse()
+
+    with self.assertRaises(SyntaxError):
+      Parser([Token(TokenType.ROOT), Token(TokenType.NUMBER, 10), Token(TokenType.ROOT)]).parse()
+
+    with self.assertRaises(SyntaxError):
+      Parser([Token(TokenType.NUMBER, 10), Token(TokenType.ROOT), Token(TokenType.POW), Token(TokenType.POW)]).parse()
+
+    with self.assertRaises(SyntaxError):
+      Parser([Token(TokenType.MINUS), Token(TokenType.MINUS), Token(TokenType.NUMBER, 10), Token(TokenType.MINUS), Token(TokenType.POW), Token(TokenType.NUMBER, 10)]).parse()
+
   ##
   # @brief Test parsing unfinished expressions
   #
