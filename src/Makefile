@@ -25,7 +25,6 @@ clean:
 	python utils/remove.py ".coverage"
 
 doc:
-	python utils/create_folder.py "..\docs"
 	Doxygen Doxyfile
 
 profile:

@@ -210,6 +210,12 @@ class MathLibTestBasicFunctions(unittest.TestCase):
     with self.assertRaises(RuntimeError):
       MathFunctions.factorial_operation(-4.2)
 
+  def test_invert(self):
+    self.assertEqual(MathFunctions.invert_operation(0), 0)
+    self.assertEqual(MathFunctions.invert_operation(-5), 5)
+    self.assertEqual(MathFunctions.invert_operation(5), -5)
+    self.assertEqual(MathFunctions.invert_operation(5.369), -5.369)
+    self.assertEqual(MathFunctions.invert_operation(-5.369), 5.369)
 
 ##
 # @brief Testing Tokenizer class of math library
