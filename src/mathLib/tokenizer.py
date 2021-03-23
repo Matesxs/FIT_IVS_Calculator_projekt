@@ -133,7 +133,7 @@ class Tokenizer:
   #
   def parse_keyword(self):
     if self.current_character not in LATTERS:
-      return None
+      raise SyntaxError("Not a keyword")
 
     string_val = self.current_character
     self.move_forward()

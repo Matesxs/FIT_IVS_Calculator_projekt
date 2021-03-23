@@ -309,6 +309,12 @@ class MathLibTestTokenizer(unittest.TestCase):
     with self.assertRaises(SyntaxError):
       Tokenizer("&;`#%").tokenize()
 
+    with self.assertRaises(SyntaxError):
+      Tokenizer("&; rand `#%").tokenize()
+
+    with self.assertRaises(SyntaxError):
+      Tokenizer("e &; rand `#%").tokenize()
+
   ##
   # @brief Test number input
   #
