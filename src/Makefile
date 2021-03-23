@@ -37,7 +37,7 @@ test:
 	python library_tests.py
 
 test_with_coverage:
-	coverage run library_tests.py
+	-coverage run library_tests.py
 	coverage report -m
 	python utils/remove.py ".coverage"
 
