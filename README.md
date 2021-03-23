@@ -21,6 +21,8 @@ If you want to play with code yourself clone this repository like this
 git clone https://github.com/Matesxs/IVS-Projekt-2-Kalkulacka
 ```
 
+or if you want try it you can download standalone executable [here](https://github.com/Matesxs/ivs_calculator_test_repository/releases)
+
 ## Setup for developement
 ```
 install python 3.7+
