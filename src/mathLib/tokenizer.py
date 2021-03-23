@@ -2,9 +2,20 @@
 # @package tokenizer
 #
 
-from .basics.constants import DIGITS, WHITE_SPACE, LATTERS, KEYWORDS
+import string
 from .basics.iterator import Iterator
 from .basics.tokens import Token, TokenType
+
+DIGITS = "0123456789"
+LATTERS = string.ascii_letters
+WHITE_SPACE = " \n\t"
+KEYWORDS = [
+  "rand",
+  "ln",
+  "fact",
+  "abs",
+  "e"
+]
 
 ##
 # @brief Tokenizer class for assigning each character/string its mean
