@@ -10,13 +10,20 @@ pack: build doc
 	python utils/create_folder.py "..\..\xdousa00_xslama32_xschin05"
 	xcopy /s /c /q "..\\docs\\" "..\\..\\xdousa00_xslama32_xschin05\\docs\\"
 	xcopy /s /c /q "..\\install\\" "..\\..\\xdousa00_xslama32_xschin05\\install\\"
-	rmdir /q /s "..\docs"
-	rmdir /q /s "..\install"
+	make clean
 	python utils/create_folder.py "..\..\xdousa00_xslama32_xschin05\repo"
 	xcopy /s /c /q "..\\.git\\" "..\\..\\xdousa00_xslama32_xschin05\\repo\\.git\\"
 	xcopy /s /c /q "..\\*" "..\\..\\xdousa00_xslama32_xschin05\\repo\\*"
 	python utils/pack_files.py
 	rmdir /q /s "..\..\xdousa00_xslama32_xschin05"
+
+clean: FORCE
+	python utils/remove.py "..\docs"
+	python utils/remove.py "..\install"
+	python utils/remove.py "build"
+	python utils/remove.py "dist"
+	python utils/remove.py "Calculator.spec"
+	python utils/remove.py ".coverage"
 
 doc: FORCE
 	python utils/create_folder.py "..\docs"
@@ -34,7 +41,7 @@ test:
 test_with_coverage:
 	coverage run library_tests.py
 	coverage report -m
-	del .coverage
+	python utils/remove.py ".coverage"
 
 init:
 	pip install -r requirements.txt
@@ -43,8 +50,5 @@ build: FORCE
 	pyinstaller --onefile --noconsole --clean -n Calculator main.py
 	python utils/create_folder.py "..\install"
 	copy dist\Calculator.exe ..\install\Calculator.exe
-	rmdir /q /s build
-	rmdir /q /s dist
-	del Calculator.spec
 
 FORCE:

@@ -35,6 +35,7 @@ init - install packages from requirements.txt
 all - make tests and run app
 run - run app
 doc - generate doxygen code documentation
+clean - clean all files that will not be submitted
 test - run tests on app
 test_with_coverage - run tests on app with test code coverage
 profile - start profiling program with input from console
