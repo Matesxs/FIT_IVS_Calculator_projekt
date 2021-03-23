@@ -60,3 +60,7 @@ pip - show installed packages
 ## License
 
 This project is licensed under the GNU GPL v.3 License.
+
+## Credits
+
+Part of the project was inspired by github.com/davidcallanan/ and his project about custom scripting language
