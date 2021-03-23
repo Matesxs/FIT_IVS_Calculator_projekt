@@ -21,6 +21,7 @@ random.seed()
 class Parser:
   ##
   # @brief Init Parser with list of tokens from Tokenizer
+  #
   # Initialize iterator and load first token
   #
   # @param tokens List of tokens to parse
@@ -103,7 +104,8 @@ class Parser:
     return self.power()
 
   ##
-  # @brief This is next priority after atom operation \n
+  # @brief This is next priority after atom operation
+  #
   # Here we are checking for power and root operation (ATOM^FACTOR or ATOM√FACTOR) \n
   # Everything before there operators needs to number or other before evaluated number
   #
@@ -113,7 +115,8 @@ class Parser:
     return self.binary_operation(self.atom, (TokenType.POW, TokenType.ROOT), self.factor)
 
   ##
-  # @brief This is most priority operation \n
+  # @brief This is most priority operation
+  #
   # Its basic building block so there are numbers evaluated numbers, constants and buildin functions
   #
   # @return Node as node tree from rest of the operations
