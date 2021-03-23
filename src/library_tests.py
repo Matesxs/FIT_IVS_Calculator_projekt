@@ -9,139 +9,78 @@ from mathLib import Tokenizer, Token, TokenType, Parser, Interpreter, Number
 from mathLib.basics.nodes import *
 from mathLib.entry_point import interpret_text_input
 
-
 ##
-# @brief Testing add function of math library
+# @brief Test mathematic operations of math library
 #
-class MathLibTestAdd(unittest.TestCase):
+class MathLibTestBasicFunctions(unittest.TestCase):
   ##
-  # @brief Test add on positive numbers
+  # @brief Test valid cases of function add
   #
-  def test_add_positive(self):
-    self.assertEqual(mathLib.MathFunctions.add_operation(0, 0), 0)
+  def test_add(self):
     self.assertEqual(mathLib.MathFunctions.add_operation(0, 5), 5)
     self.assertEqual(mathLib.MathFunctions.add_operation(2, 0), 2)
-    self.assertEqual(mathLib.MathFunctions.add_operation(1, 3), 4)
 
-  ##
-  # @brief Test add on negative numbers
-  #
-  def test_add_negative(self):
-    self.assertEqual(mathLib.MathFunctions.add_operation(-1, -2), -3)
     self.assertEqual(mathLib.MathFunctions.add_operation(-5, 0), -5)
     self.assertEqual(mathLib.MathFunctions.add_operation(5, -8), -3)
-    self.assertEqual(mathLib.MathFunctions.add_operation(-20, -33), -53)
 
-  ##
-  # @brief Test add on mixed numbers with floats numbers
-  #
-  def test_add_mixed(self):
     self.assertEqual(mathLib.MathFunctions.add_operation(-5, 2.4), -2.6)
     self.assertEqual(mathLib.MathFunctions.add_operation(3, -6.2), -3.2)
     self.assertEqual(mathLib.MathFunctions.add_operation(-3.2, 10), 6.8)
 
-
-##
-# @brief Testing sub function of math library
-#
-class MathLibTestSub(unittest.TestCase):
   ##
-  # @brief Test sub on positive numbers
+  # @brief Test valid cases of function subtract
   #
-  def test_sub_positive(self):
+  def test_sub(self):
     self.assertEqual(mathLib.MathFunctions.sub_operation(0, 0), 0)
     self.assertEqual(mathLib.MathFunctions.sub_operation(4, 6), -2)
     self.assertEqual(mathLib.MathFunctions.sub_operation(2, 0), 2)
-    self.assertEqual(mathLib.MathFunctions.sub_operation(0, 4), -4)
     self.assertEqual(mathLib.MathFunctions.sub_operation(255, 55), 200)
 
-  ##
-  # @brief Test sub on negative numbers
-  #
-  def test_sub_negatibe(self):
     self.assertEqual(mathLib.MathFunctions.sub_operation(0, -4), 4)
-    self.assertEqual(mathLib.MathFunctions.sub_operation(-6, 0), -6)
     self.assertEqual(mathLib.MathFunctions.sub_operation(-12, -4), -8)
-    self.assertEqual(mathLib.MathFunctions.sub_operation(-2, -6), 4)
-    self.assertEqual(mathLib.MathFunctions.sub_operation(-600, -820), 220)
 
-  ##
-  # @brief Test sub on mixed numbers with floats numbers
-  #
-  def test_sub_mixed(self):
     self.assertEqual(mathLib.MathFunctions.sub_operation(-6, 2.4), -8.4)
     self.assertEqual(mathLib.MathFunctions.sub_operation(-1.2, 4), -5.2)
     self.assertEqual(mathLib.MathFunctions.sub_operation(2.4, -4.5), 6.9)
 
-
-##
-# @brief Testing mult function of math library
-#
-class MathLibTestMult(unittest.TestCase):
   ##
-  # @brief Test mult on positive numbers
+  # @brief Test valid cases of function multiply
   #
-  def test_mult_positive(self):
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(0, 0), 0)
+  def test_mult(self):
     self.assertEqual(mathLib.MathFunctions.multiply_operation(255, 0), 0)
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(6, 3), 18)
     self.assertEqual(mathLib.MathFunctions.multiply_operation(0, 10), 0)
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(11, 11), 121)
+    self.assertEqual(mathLib.MathFunctions.multiply_operation(6, 3), 18)
 
-  ##
-  # @brief Test mult on negative numbers
-  #
-  def test_mult_negative(self):
     self.assertEqual(mathLib.MathFunctions.multiply_operation(-1, 0), 0)
     self.assertEqual(mathLib.MathFunctions.multiply_operation(0, -5), 0)
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(0, -300), 0)
-    self.assertEqual(mathLib.MathFunctions.multiply_operation(-245, 0), 0)
     self.assertEqual(mathLib.MathFunctions.multiply_operation(-33, -45), 1485)
+    self.assertEqual(mathLib.MathFunctions.multiply_operation(-45, 2), -90)
+    self.assertEqual(mathLib.MathFunctions.multiply_operation(45, -2), -90)
 
-  ##
-  # @brief Test mult on mixed numbers with floats numbers
-  #
-  def test_mult_mixed(self):
     self.assertEqual(mathLib.MathFunctions.multiply_operation(-4.5, 4), -18)
     self.assertEqual(mathLib.MathFunctions.multiply_operation(2.25, -16), -36)
     self.assertEqual(mathLib.MathFunctions.multiply_operation(10, -3.3), -33)
     self.assertEqual(mathLib.MathFunctions.multiply_operation(-2, 4.8), -9.6)
 
-
-##
-# @brief Testing div function of math library
-#
-class MathLibTestDiv(unittest.TestCase):
   ##
-  # @brief Test div on positive numbers
+  # @brief Test valid cases of function divide
   #
-  def test_div_positive(self):
+  def test_div(self):
     self.assertEqual(mathLib.MathFunctions.divide_operation(0, 5), 0)
     self.assertEqual(mathLib.MathFunctions.divide_operation(20, 5), 4)
     self.assertEqual(mathLib.MathFunctions.divide_operation(6, 4), 1.5)
-    self.assertEqual(mathLib.MathFunctions.divide_operation(2, 20), 0.1)
-    self.assertEqual(mathLib.MathFunctions.divide_operation(500, 40), 12.5)
 
-  ##
-  # @brief Test div on negative numbers
-  #
-  def test_div_negative(self):
-    self.assertEqual(mathLib.MathFunctions.divide_operation(-5, 5), -1)
     self.assertEqual(mathLib.MathFunctions.divide_operation(0, -5), 0)
     self.assertEqual(mathLib.MathFunctions.divide_operation(9, -3), -3)
     self.assertEqual(mathLib.MathFunctions.divide_operation(-36, -4), 9)
-    self.assertEqual(mathLib.MathFunctions.divide_operation(3, -5), -0.6)
+    self.assertEqual(mathLib.MathFunctions.divide_operation(-5, 5), -1)
 
-  ##
-  # @brief Test div on mixed numbers with floats numbers
-  #
-  def test_div_mixed(self):
     self.assertEqual(mathLib.MathFunctions.divide_operation(6.2, 4), 1.55)
     self.assertEqual(mathLib.MathFunctions.divide_operation(3, -6.5), -0.46153846153846153846153846153846)
     self.assertEqual(mathLib.MathFunctions.divide_operation(-5.5, -6.5), 0.84615384615384615384615384615385)
 
   ##
-  # @brief Test div function on division by zero
+  # @brief Test divide function on division by zero
   #
   def test_division_by_zero(self):
     with self.assertRaises(RuntimeError):
@@ -156,13 +95,8 @@ class MathLibTestDiv(unittest.TestCase):
     with self.assertRaises(RuntimeError):
       mathLib.MathFunctions.divide_operation(-5.65, 0)
 
-
-##
-# @brief Testing pow function of math library
-#
-class MathLibTestPow(unittest.TestCase):
   ##
-  # @brief Test pow with zeros
+  # @brief Test valid cases of function power for operations with zero
   #
   def test_pow_op_with_zero(self):
     self.assertEqual(mathLib.MathFunctions.power_operation(0, 0), 1)
@@ -170,107 +104,106 @@ class MathLibTestPow(unittest.TestCase):
     self.assertEqual(mathLib.MathFunctions.power_operation(12, 0), 1)
 
   ##
-  # @brief Test pow on positive numbers
+  # @brief Test valid cases of function power
   #
-  def test_pow_positive(self):
+  def test_pow(self):
     self.assertEqual(mathLib.MathFunctions.power_operation(2, 2), 4)
     self.assertEqual(mathLib.MathFunctions.power_operation(2.4, 2), 5.76)
     self.assertEqual(mathLib.MathFunctions.power_operation(2.4, 4.52), 52.306397819793965)
 
-  ##
-  # @brief Test pow on negative numbers
-  #
-  def test_pow_negative(self):
     self.assertEqual(mathLib.MathFunctions.power_operation(2, -2), 0.25)
     self.assertEqual(mathLib.MathFunctions.power_operation(-2, 2), 4)
     self.assertEqual(mathLib.MathFunctions.power_operation(-2, -2), 0.25)
     self.assertEqual(mathLib.MathFunctions.power_operation(-2.32, -3), -0.08008220919266884)
 
-
-##
-# @brief Testing root function of math library
-#
-class MathLibTestRoot(unittest.TestCase):
   ##
-  # @brief Test root on positive numbers
+  # @brief Test valid cases of function nroot
   #
-  def test_root_positive(self):
+  def test_root(self):
     self.assertEqual(mathLib.MathFunctions.root_operation(8, 0), 0)
     self.assertEqual(mathLib.MathFunctions.root_operation(2, 4), 2)
     self.assertEqual(mathLib.MathFunctions.root_operation(8, 2.2), 1.1035774941665433)
     self.assertEqual(mathLib.MathFunctions.root_operation(4.8, 3.25), 1.2783281919978795)
 
-  ##
-  # @brief Test root on positive numbers
-  #
-  def test_root_negative(self):
     self.assertEqual(mathLib.MathFunctions.root_operation(-2, 4), 0.5)
     self.assertEqual(mathLib.MathFunctions.root_operation(-3.15, 3.45), 0.6749378431838611)
 
   ##
-  # @brief Test root invalid cases
+  # @brief Test nroot of negative numbers
   #
-  # Cant do root on negative number without imaginary numbers.
-  # Root is not defined for zero root base.
+  # Can't do root on negative number without using imaginary numbers.
   #
-  def test_root_invalid_cases(self):
-    # Cant do root on negative number without imaginary numbers
+  def test_root_negative_base(self):
     with self.assertRaises(RuntimeError):
       mathLib.MathFunctions.root_operation(2, -5)
 
     with self.assertRaises(RuntimeError):
       mathLib.MathFunctions.root_operation(2, -2.485)
 
-    # Root is not defined for zero root base
+  ##
+  # @brief Test nroot with zero n
+  #
+  # Root of zero n is not defined
+  #
+  def test_nroot_zero_n(self):
     with self.assertRaises(RuntimeError):
       mathLib.MathFunctions.root_operation(0, 2)
 
     with self.assertRaises(RuntimeError):
       mathLib.MathFunctions.root_operation(0, 5.32)
 
-
-##
-# @brief Testing ln function of math library
-#
-class MathLibTestLn(unittest.TestCase):
   ##
-  # @brief Test ln on positive numbers
+  # @brief Test valid cases of function natural logarithm
   #
-  def test_ln_on_positive_numbers(self):
+  def test_ln(self):
     self.assertEqual(mathLib.MathFunctions.natural_log_operation(1), 0)
     self.assertEqual(mathLib.MathFunctions.natural_log_operation(0.5), -0.6931471805599453)
     self.assertEqual(mathLib.MathFunctions.natural_log_operation(1.2), 0.1823215567939546)
     self.assertEqual(mathLib.MathFunctions.natural_log_operation(4), 1.3862943611198906)
 
   ##
-  # @brief Test ln invalid cases
+  # @brief Test natural logarithm of zero
   #
-  # Natural logarithm is not defined for numbers <= 0.
+  # Natural logarithm is not defined for zero
   #
-  def test_ln_invalid_cases(self):
+  def test_ln_zero(self):
     with self.assertRaises(RuntimeError):
       mathLib.MathFunctions.natural_log_operation(0)
 
+  ##
+  # @brief Test natural logarithm of negative numbers
+  #
+  # Natural logarithm is not defined for negative numbers
+  #
+  def test_ln_negative_numbers(self):
     with self.assertRaises(RuntimeError):
       mathLib.MathFunctions.natural_log_operation(-1)
 
     with self.assertRaises(RuntimeError):
       mathLib.MathFunctions.natural_log_operation(-2.25)
 
-
-##
-# @brief Testing ln function of math library
-#
-class MathLibTestFact(unittest.TestCase):
-  def test_fact_positive_whole_numbers(self):
+  ##
+  # @brief Test valid cases of function factorial
+  #
+  def test_fact(self):
     self.assertEqual(mathLib.MathFunctions.factorial_operation(0), 1)
     self.assertEqual(mathLib.MathFunctions.factorial_operation(1), 1)
     self.assertEqual(mathLib.MathFunctions.factorial_operation(4), 24)
 
-  def test_fact_invalid_cases(self):
+  ##
+  # @brief Test factorial of float numbers
+  #
+  def test_fact_positive_float_numbers(self):
     with self.assertRaises(RuntimeError):
       mathLib.MathFunctions.factorial_operation(3.35)
 
+    with self.assertRaises(RuntimeError):
+      mathLib.MathFunctions.factorial_operation(12.87)
+
+  ##
+  # @brief Test factorial of negative numbers
+  #
+  def test_fact_negative_numbers(self):
     with self.assertRaises(RuntimeError):
       mathLib.MathFunctions.factorial_operation(-5)
 
