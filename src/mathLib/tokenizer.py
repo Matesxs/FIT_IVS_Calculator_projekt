@@ -95,7 +95,7 @@ class Tokenizer:
         tokens.append(Token(TokenType.RPAREN))
 
       else:
-        tokens.append(self.parse_keyword())
+        tokens.append(self.parse_keyword_token())
     return tokens
 
   ##
@@ -133,7 +133,7 @@ class Tokenizer:
   #
   # @return Token of KEYWORD type with value from string
   #
-  def parse_keyword(self):
+  def parse_keyword_token(self):
     if self.current_character not in LATTERS:
       raise SyntaxError("Not a keyword")
 
