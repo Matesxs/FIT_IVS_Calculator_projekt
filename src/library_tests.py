@@ -82,6 +82,8 @@ class MathLibTestBasicFunctions(unittest.TestCase):
   ##
   # @brief Test divide function on division by zero
   #
+  # Division by zero is invalid mathematical operation
+  #
   def test_division_by_zero(self):
     with self.assertRaises(RuntimeError):
       MathFunctions.divide_operation(3, 0)
@@ -193,6 +195,8 @@ class MathLibTestBasicFunctions(unittest.TestCase):
   ##
   # @brief Test factorial of float numbers
   #
+  # Factorial of float numbers in undefined
+  #
   def test_fact_positive_float_numbers(self):
     with self.assertRaises(RuntimeError):
       MathFunctions.factorial_operation(3.35)
@@ -202,6 +206,8 @@ class MathLibTestBasicFunctions(unittest.TestCase):
 
   ##
   # @brief Test factorial of negative numbers
+  #
+  # Factorial of negative numbers is undefined
   #
   def test_fact_negative_numbers(self):
     with self.assertRaises(RuntimeError):
