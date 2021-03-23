@@ -20,6 +20,8 @@ KEYWORDS = [
 ##
 # @brief Tokenizer class for assigning each character/string its mean
 #
+# Based on https://github.com/davidcallanan/py-myopl-code/blob/master/ep14/basic.py line 170 - 361 and extended/corrected
+#
 class Tokenizer:
   ##
   # @brief Init tokenizer with input text to tokenize

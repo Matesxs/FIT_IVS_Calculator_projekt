@@ -10,6 +10,8 @@ from .basics.math_functions import MathFunctions
 ##
 # @brief Interpreter class for executing functions based on input node tree
 #
+# Based on https://github.com/davidcallanan/py-myopl-code/blob/master/ep14/basic.py line 1908 - 2156 and extended/corrected
+#
 class Interpreter:
   ##
   # @brief Entry point for interpreting node tree

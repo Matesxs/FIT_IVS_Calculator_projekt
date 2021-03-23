@@ -16,6 +16,8 @@ random.seed()
 ##
 # @brief Parser class for assigning context to sequence of tokens
 #
+# Based on https://github.com/davidcallanan/py-myopl-code/blob/master/ep14/basic.py line 547 - 1250 and extended/corrected
+#
 class Parser:
   ##
   # @brief Init Parser with list of tokens from Tokenizer
