@@ -1,4 +1,4 @@
-.PHONY: all run pack clean doc profile profile_with_log test test_with_coverage init build
+.PHONY: all run pack clean doc profile profile_with_log test test_with_coverage init build build_standalone build_installer
 
 all: init run
 
