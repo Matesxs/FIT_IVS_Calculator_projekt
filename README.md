@@ -57,7 +57,7 @@ pip - show installed packages
 * [PyQt](https://wiki.python.org/moin/PyQt)
 
 ## Authors
-
+Name of team: "Název týmu:"
 * **Martin Douša**
 * **Ondřej Sláma**
 * **Vojtěch Schindler**
