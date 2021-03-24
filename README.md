@@ -10,12 +10,12 @@
 
 ## About
 
-Simple calculator made in python using buildin math library, buildin functions and Qt for UI.
+A simple calculator made in python using buildin math library, buildin functions and Qt for UI.
 This software is targeted for **Windows** because it's platfor all of us using but in theory you can use it on whatever
 system with graphical interface you want because python can run almost anywhere.
 This software comes with two versions:
 * standalone - slower starts but its only one executable
-* installer - needs to be installed (and uninstalled) but its faster to start
+* installer - needs to be installed (and uninstalled), but it is faster to start
 
 ## Getting Started
 
