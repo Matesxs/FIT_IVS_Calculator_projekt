@@ -32,8 +32,9 @@ install python 3.7+
 create python venv and activate it (optional)
 cd src
 pip install -r requirements.txt or make init
-if you want compile installer you need to install Inno Setup Compiler and add it to path for automatic compiling \
-or you can do it by hand using .iss script in utils folder
+
+If you want compile installer you need to install Inno Setup Compiler and add it to 
+path for automatic compiling or you can do it by hand using .iss script in utils folder.
 ```
 
 ### Makefile endpoints
