@@ -13,6 +13,9 @@
 Simple calculator made in python using buildin math library, buildin functions and Qt for UI.
 This software is targeted for **Windows** because it's platfor all of us using but in theory you can use it on whatever
 system with graphical interface you want because python can run almost anywhere.
+This software comes with two versions:
+* standalone - slower starts but its only one executable
+* installer - needs to be installed (and uninstalled) but its faster to start
 
 ## Getting Started
 
@@ -21,7 +24,7 @@ If you want to play with code yourself clone this repository like this
 git clone https://github.com/Matesxs/IVS-Projekt-2-Kalkulacka
 ```
 
-or if you want try it you can download standalone executable [here](https://github.com/Matesxs/ivs_calculator_test_repository/releases)
+or you can download finished product [here](https://github.com/Matesxs/ivs_calculator_test_repository/releases)
 
 ## Setup for developement
 ```
@@ -29,6 +32,8 @@ install python 3.7+
 create python venv and activate it (optional)
 cd src
 pip install -r requirements.txt or make init
+if you want compile installer you need to install Inno Setup Compiler and add it to path for automatic compiling \
+or you can do it by hand using .iss script in utils folder
 ```
 
 ### Makefile endpoints

@@ -44,10 +44,20 @@ test_with_coverage:
 init:
 	pip install -r requirements.txt
 
-build:
-	pyinstaller --onefile --noconsole --clean -n Calculator main.py
+build: build_standalone build_installer
+
+build_standalone:
+	pyinstaller --onefile --noconsole --clean -n CalculatorStandalone main.py
 	python utils/create_folder.py "..\install"
-	copy dist\Calculator.exe ..\install\Calculator.exe
+	copy dist\CalculatorStandalone.exe ..\install\CalculatorStandalone.exe
+	python utils/remove.py "build"
+	python utils/remove.py "dist"
+	python utils/remove.py "CalculatorStandalone.spec"
+
+build_installer:
+	pyinstaller --onedir --noconsole --clean -n Calculator main.py
+	python utils/create_folder.py "..\install"
+	-iscc .\utils\installer_compile_script.iss
 	python utils/remove.py "build"
 	python utils/remove.py "dist"
 	python utils/remove.py "Calculator.spec"
