@@ -35,6 +35,7 @@ pip install -r requirements.txt or make init
 
 If you want compile installer you need to install Inno Setup Compiler and add it to 
 path for automatic compiling or you can do it by hand using .iss script in utils folder.
+For profiling with log you will need graphviz to graphical output of calls.
 ```
 
 ### Makefile endpoints
@@ -50,8 +51,8 @@ clean - clean all files that will not be submitted
 test - run tests on app
 test_with_coverage - run tests on app with test code coverage
 profile - start profiling program with input from console
-profile_with_log - start profiling with random data input and output log data
-pack - create .exe files from app, generate docomentation and pack it to zip for submit (Windows required)
+profile_with_log - start profiling with random data input and output log data (graphviz optional)
+pack - create .exe files from app, generate docomentation and pack it to zip for submit
 pip - show installed packages
 ```
 

@@ -1,42 +1,42 @@
-         125264 function calls (107159 primitive calls) in 0.044 seconds
+         125228 function calls (107123 primitive calls) in 0.040 seconds
 
    Ordered by: cumulative time
 
    ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-        1    0.000    0.000    0.045    0.045 profiling_with_log.py:13(standart_deviation)
-        1    0.000    0.000    0.045    0.045 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\entry_point.py:7(interpret_text_input)
-        1    0.003    0.003    0.029    0.029 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\tokenizer.py:18(parse_input_text)
-     2008    0.012    0.000    0.025    0.000 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\tokenizer.py:69(parse_number_token)
-    36473    0.007    0.000    0.013    0.000 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\tokenizer.py:12(move_forward)
-        1    0.000    0.000    0.009    0.009 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\prsr.py:30(parse)
-      8/1    0.000    0.000    0.009    0.009 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\prsr.py:41(expr)
-   4031/1    0.002    0.000    0.009    0.009 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\prsr.py:86(binary_operation)
-   2008/1    0.001    0.000    0.009    0.009 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\prsr.py:44(term)
-   2015/1    0.001    0.000    0.009    0.009 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\prsr.py:47(factor)
-   2015/1    0.001    0.000    0.009    0.009 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\prsr.py:55(power)
-   2015/2    0.001    0.000    0.009    0.004 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\prsr.py:58(atom)
-   4015/1    0.002    0.000    0.007    0.007 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\interpreter.py:7(interpret_node_tree)
-   2007/1    0.003    0.000    0.007    0.007 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\interpreter.py:34(visit_BinaryOperationNode)
-    40503    0.007    0.000    0.007    0.000 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\basics\iterator.py:6(next)
-     4030    0.001    0.000    0.002    0.000 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\prsr.py:18(move_forward)
-     4015    0.001    0.000    0.001    0.000 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\basics\number_class.py:7(get_value)
-     2008    0.001    0.000    0.001    0.000 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\interpreter.py:15(visit_NumberNode)
-     4015    0.000    0.000    0.000    0.000 {built-in method builtins.getattr}
+        1    0.000    0.000    0.041    0.041 profiling_with_log.py:13(standart_deviation)
+        1    0.000    0.000    0.041    0.041 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/entry_point.py:15(interpret_text_input)
+        1    0.002    0.002    0.026    0.026 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/tokenizer.py:53(tokenize)
+     2008    0.011    0.000    0.022    0.000 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/tokenizer.py:106(parse_number_token)
+    36455    0.006    0.000    0.012    0.000 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/tokenizer.py:40(move_forward)
+        1    0.000    0.000    0.008    0.008 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/prsr.py:50(parse)
+      8/1    0.000    0.000    0.008    0.008 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/prsr.py:73(expr)
+   4031/1    0.002    0.000    0.008    0.008 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/prsr.py:161(binary_operation)
+   2008/1    0.001    0.000    0.008    0.008 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/prsr.py:84(term)
+   2015/1    0.001    0.000    0.008    0.008 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/prsr.py:96(factor)
+   2015/1    0.001    0.000    0.008    0.008 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/prsr.py:114(power)
+   2015/2    0.001    0.000    0.008    0.004 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/prsr.py:124(atom)
+   4015/1    0.002    0.000    0.007    0.007 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/interpreter.py:25(interpret)
+   2007/1    0.003    0.000    0.007    0.007 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/interpreter.py:79(visit_BinaryOperationNode)
+    40485    0.006    0.000    0.006    0.000 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/basics/iterator.py:21(next)
+     4030    0.001    0.000    0.002    0.000 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/prsr.py:38(move_forward)
+     4015    0.001    0.000    0.001    0.000 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/basics/number_class.py:21(get_value)
+     2008    0.000    0.000    0.001    0.000 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/interpreter.py:44(visit_NumberNode)
+     4015    0.001    0.000    0.001    0.000 {built-in method builtins.getattr}
      4015    0.000    0.000    0.000    0.000 <string>:2(__init__)
      4029    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
      2008    0.000    0.000    0.000    0.000 {method 'endswith' of 'str' objects}
      2008    0.000    0.000    0.000    0.000 {method 'startswith' of 'str' objects}
-     1998    0.000    0.000    0.000    0.000 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\basics\math_functions.py:4(add_operation)
-        1    0.000    0.000    0.000    0.000 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\basics\number_class.py:11(__repr__)
-        1    0.000    0.000    0.000    0.000 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\tokenizer.py:6(__init__)
-        1    0.000    0.000    0.000    0.000 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\basics\math_functions.py:22(power_operation)
-        1    0.000    0.000    0.000    0.000 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\prsr.py:12(__init__)
-       21    0.000    0.000    0.000    0.000 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\basics\tokens.py:21(matches)
-        2    0.000    0.000    0.000    0.000 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\basics\math_functions.py:16(divide_operation)
-        2    0.000    0.000    0.000    0.000 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\basics\iterator.py:2(__init__)
-        3    0.000    0.000    0.000    0.000 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\basics\math_functions.py:12(multiply_operation)
-        2    0.000    0.000    0.000    0.000 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\basics\math_functions.py:8(sub_operation)
-        1    0.000    0.000    0.000    0.000 C:\Users\marti\Desktop\TestProjectRepo\src\mathLib\basics\math_functions.py:26(root_operation)
+     1998    0.000    0.000    0.000    0.000 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/basics/math_functions.py:20(add_operation)
+        1    0.000    0.000    0.000    0.000 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/basics/number_class.py:25(__repr__)
+        1    0.000    0.000    0.000    0.000 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/tokenizer.py:31(__init__)
+        1    0.000    0.000    0.000    0.000 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/prsr.py:29(__init__)
+        1    0.000    0.000    0.000    0.000 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/basics/math_functions.py:76(power_operation)
+       21    0.000    0.000    0.000    0.000 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/basics/tokens.py:38(matches)
+        2    0.000    0.000    0.000    0.000 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/basics/math_functions.py:61(divide_operation)
+        1    0.000    0.000    0.000    0.000 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/basics/math_functions.py:93(root_operation)
+        3    0.000    0.000    0.000    0.000 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/basics/math_functions.py:46(multiply_operation)
+        2    0.000    0.000    0.000    0.000 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/basics/iterator.py:12(__init__)
+        2    0.000    0.000    0.000    0.000 /mnt/c/Users/marti/Desktop/TestProjectRepo/src/mathLib/basics/math_functions.py:33(sub_operation)
         1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
 
 

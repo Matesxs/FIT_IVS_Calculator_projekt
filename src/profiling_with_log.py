@@ -27,8 +27,11 @@ if __name__ == '__main__':
   n = len(numbers)
   input_string = f"(1 / ({n} - 1) * ({create_sum_string([MathFunctions.power_operation(float(number), 2) for number in numbers])} - {n} * ((1 / {n}) * {create_sum_string(numbers)})^2))√2"
 
-  with PyCallGraph(output=GraphvizOutput(output_file='../profiling/profiling_output.png'), config=Config(groups=True)):
-    standart_deviation(input_string)
+  try:
+    with PyCallGraph(output=GraphvizOutput(output_file='../profiling/profiling_output.png'), config=Config(groups=True)):
+      standart_deviation(input_string)
+  except Exception as e:
+    print(f"Failed to create call graph\n{e}")
 
   pr = cProfile.Profile()
   pr.enable()
