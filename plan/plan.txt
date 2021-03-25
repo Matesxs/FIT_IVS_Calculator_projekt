@@ -6,23 +6,26 @@ Vojtěch Shindler xschin05
 DEADLINE: 30. 4. 2021
 
 Termíny:
-1)	Repozitář, requirements.txt
-2)	Testy mat operací, základ makefile
-3)  Matematické oprace
-4)  Kontrola a korekce testů mat operací
-5)  Testy tokenizeru
-6)  Tokenizer
-7)  Testy parseru
-8)  Parser
-9)  Testy interpreteru
-10) Interpreter
-11) Testy endpointu, kontrola tokenizer - interpreter
-12) Endpoint
-13) Kontrola testů a edgecasů, doplnění makefile
-14) UI, profiling
-15) Integrace mat knihovny do UI
-16) Testování
-17) Kontrola dokumentace, manuál, finalizace makefile
+1)	Repozitář, requirements.txt                                 20.3.2021
+2)	Testy mat operací, základ makefile                          1.4.2021
+3)  Matematické oprace                                          2.4.2021
+4)  Kontrola a korekce testů mat operací                        2.4.2021
+5)  Testy tokenizeru                                            5.4.2021
+6)  Tokenizer                                                   8.4.2021
+7)  Testy parseru                                               12.4.2021
+8)  Parser                                                      17.4.2021
+9)  Testy interpreteru                                          17.4.2021
+10) Interpreter                                                 19.4.2021
+11) Testy endpointu, kontrola tokenizer - interpreter           20.4.2021
+12) Endpoint                                                    21.4.2021
+13) Kontrola testů a edgecasů                                   22.4.2021
+14) UI, profiling                                               22.4.2021
+15) Integrace mat knihovny do UI                                23.4.2021
+16) Testování                                                   24.4.2021
+17) Kontrola dokumentace, manuál, finalizace makefile           25.4.2021
 18) Mocup - pokud vyjde čas
 
 Rozdělení práce:
+  Martin Douša - Repozitář, requirements.txt, základ makefile, Kontrola a korekce testů mat operací, Testy parseru, Parser, kontrola tokenizer - interpreter, UI, finalizace makefile
+  Ondřej Sláma - Matematické oprace, Testy tokenizeru, Interpreter, Testy endpointu, profiling, Testování, manuál
+  Vojtěch Shindler - Testy mat operací, Tokenizer, Testy interpreteru, Endpoint, Kontrola testů a edgecasů, Integrace mat knihovny do UI, Kontrola dokumentace
