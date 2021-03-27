@@ -1,3 +1,4 @@
+import threading
 from pycallgraph import PyCallGraph, Config
 from pycallgraph.output import GraphvizOutput
 from mathLib.entry_point import interpret_text_input
@@ -7,7 +8,9 @@ from pstats import SortKey
 import random
 import sys
 
-sys.setrecursionlimit(1_000_000)
+sys.setrecursionlimit(20_000_000)
+threading.stack_size(0x8000000)
+
 random.seed()
 
 def standart_deviation(input_string):
@@ -22,8 +25,8 @@ def create_sum_string(numbers):
 def get_numbers_testing(x):
   return [random.random() * 1000 for _ in range(x)]
 
-if __name__ == '__main__':
-  numbers = get_numbers_testing(1_000)
+def ecxecute():
+  numbers = get_numbers_testing(100_000)
   n = len(numbers)
   input_string = f"(1 / ({n} - 1) * ({create_sum_string([MathFunctions.power_operation(float(number), 2) for number in numbers])} - {n} * ((1 / {n}) * {create_sum_string(numbers)})^2))√2"
 
@@ -44,3 +47,8 @@ if __name__ == '__main__':
 
   with open("../profiling/profile_log.txt", "w") as f:
     f.write(s.getvalue())
+
+if __name__ == '__main__':
+  t = threading.Thread(target=ecxecute)
+  t.start()
+  t.join()
