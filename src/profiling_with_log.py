@@ -26,9 +26,9 @@ def get_numbers_testing(x):
   return [random.random() * 1000 for _ in range(x)]
 
 def ecxecute():
-  numbers = get_numbers_testing(100_000)
+  numbers = get_numbers_testing(10_000)
   n = len(numbers)
-  input_string = f"(1 / ({n} - 1) * ({create_sum_string([MathFunctions.power_operation(float(number), 2) for number in numbers])} - {n} * ((1 / {n}) * {create_sum_string(numbers)})^2))√2"
+  input_string = f"2√(1 / ({n} - 1) * ({create_sum_string([MathFunctions.power_operation(float(number), 2) for number in numbers])} - {n} * ((1 / {n}) * {create_sum_string(numbers)})^2))"
 
   try:
     with PyCallGraph(output=GraphvizOutput(output_file='../profiling/profiling_output.png'), config=Config(groups=True)):

@@ -147,9 +147,9 @@ class Parser:
 
       self.move_forward()
       return res
-    elif token.matches(TokenType.KEYWORD, "ln") or token.matches(TokenType.KEYWORD, "fact"):
+    elif token.matches(TokenType.KEYWORD, "ln") or token.matches(TokenType.KEYWORD, "fact") or token.matches(TokenType.KEYWORD, "sqrt"):
       self.move_forward()
-      return UnaryOperationNode(token, self.atom()) # We are evaluating only atom because fact can be done only for positive numbers so we dont need to include +-NUMBER
+      return UnaryOperationNode(token, self.atom()) # We are evaluating only atom because fact, ln and sqrt can be done only for positive numbers so we dont need to include +-NUMBER
 
     raise SyntaxError("Unknown token")
 

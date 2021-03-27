@@ -65,6 +65,8 @@ class Interpreter:
       return Number(MathFunctions.natural_log_operation(number))
     elif node.operation_token.matches(TokenType.KEYWORD, "abs"):
       return Number(MathFunctions.abs_operation(number))
+    elif node.operation_token.matches(TokenType.KEYWORD, "sqrt"):
+      return Number(MathFunctions.root_operation(2, number))
 
     raise RuntimeError(f"Unknown unary operation token: {node.operation_token}")
 

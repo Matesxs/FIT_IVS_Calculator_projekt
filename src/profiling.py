@@ -9,7 +9,7 @@ random.seed()
 
 # Generate input string for math lib and execute calculation
 def standart_deviation(numbers, n):
-  input_string = f"(1 / ({n} - 1) * ({create_sum_string([MathFunctions.power_operation(float(number), 2) for number in numbers])} - {n} * ((1 / {n}) * {create_sum_string(numbers)})^2))√2"
+  input_string = f"2√(1 / ({n} - 1) * ({create_sum_string([MathFunctions.power_operation(float(number), 2) for number in numbers])} - {n} * ((1 / {n}) * {create_sum_string(numbers)})^2))"
   return interpret_text_input(input_string)
 
 # Create string with sum of all numbers

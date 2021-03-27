@@ -14,7 +14,8 @@ KEYWORDS = [
   "ln",
   "fact",
   "abs",
-  "e"
+  "e",
+  "sqrt"
 ]
 
 ##
