@@ -31,7 +31,7 @@ class CalculatorApp(QtWidgets.QMainWindow, Ui_Calculator):
     self.button_number_six.clicked.connect(self.button_pressed)
     self.button_number_seven.clicked.connect(self.button_pressed)
     self.button_number_eight.clicked.connect(self.button_pressed)
-    # self.button_number_nine.clicked.connect(self.button_pressed)
+    self.button_number_nine.clicked.connect(self.button_pressed)
 
     self.button_equal.clicked.connect(self.solve_input)
     self.button_del.clicked.connect(self.erase_last)
