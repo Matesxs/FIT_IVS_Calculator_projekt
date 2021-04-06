@@ -1,10 +1,12 @@
 from mathLib.entry_point import interpret_text_input
 from mathLib.basics.math_functions import MathFunctions
 import random
+import threading
 import sys
 
 # Rise recursion limit because we used them a lot so it doesnt break
-sys.setrecursionlimit(1_000_000)
+sys.setrecursionlimit(50_000_000)
+threading.stack_size(0x8000000)
 random.seed()
 
 # Generate input string for math lib and execute calculation
@@ -21,9 +23,12 @@ def create_sum_string(numbers):
 
 # Load user input, sanitize it and pass for formating for math lib
 def profile():
-  numbers = input("Input numbers for standart deviation: ")
+  numbers = sys.stdin.read()
   numbers = str(numbers).replace(" ", ";").replace("\t", ";").replace("\n", ";").replace("\r", "").replace(",", ".").split(";")
+  numbers = [number for number in numbers if number != ""]
   print(standart_deviation(numbers, len(numbers)))
 
 if __name__ == '__main__':
-  profile()
+  t = threading.Thread(target=profile)
+  t.start()
+  t.join()
