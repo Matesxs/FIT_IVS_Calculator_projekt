@@ -1,21 +1,57 @@
-from .basics.constants import DIGITS, WHITE_SPACE, LATTERS, KEYWORDS
+##
+# @package tokenizer
+#
+
+import string
 from .basics.iterator import Iterator
 from .basics.tokens import Token, TokenType
 
+DIGITS = "0123456789"
+LATTERS = string.ascii_letters
+WHITE_SPACE = " \n\t"
+KEYWORDS = [
+  "rand",
+  "ln",
+  "fact",
+  "abs",
+  "e",
+  "sqrt"
+]
+
+##
+# @brief Tokenizer class for assigning each character/string its mean
+#
+# Based on https://github.com/davidcallanan/py-myopl-code/blob/master/ep14/basic.py line 170 - 361 and extended/corrected
+#
 class Tokenizer:
+  ##
+  # @brief Init tokenizer with input text to tokenize
+  #
+  # Initialize iterator and load first character
+  #
   def __init__(self, text_input:str):
     self.text_iterator = Iterator(text_input)
 
     self.current_character = None
     self.move_forward()
 
+  ##
+  # @brief Call for next char in string
+  #
   def move_forward(self):
     try:
       self.current_character = self.text_iterator.next()
     except:
       self.current_character = None
 
-  def parse_input_text(self):
+  ##
+  # @brief Start tokenizing process
+  #
+  # Go thru each token and assign type to it based on its value
+  #
+  # @return List of tokens
+  #
+  def tokenize(self):
     tokens = []
 
     while self.current_character is not None:
@@ -60,12 +96,14 @@ class Tokenizer:
         tokens.append(Token(TokenType.RPAREN))
 
       else:
-        res = self.parse_parse_keyword()
-        if not res:
-          raise SyntaxError("Found invalid tokens in input")
-        tokens.append(res)
+        tokens.append(self.parse_keyword_token())
     return tokens
 
+  ##
+  # @brief Get number token from string
+  #
+  # @return Token of type NUMBER
+  #
   def parse_number_token(self):
     number_string = self.current_character
     decimal_place_token_found = self.current_character == "."
@@ -88,9 +126,17 @@ class Tokenizer:
 
     return Token(TokenType.NUMBER, float(number_string))
 
-  def parse_parse_keyword(self):
+  ##
+  # @brief Get keyword tokens from string
+  #
+  # If current token dont belong to other categories then we will try add them together as keyword token \n
+  # Keyword token is created only if its value is in list of keywords
+  #
+  # @return Token of KEYWORD type with value from string
+  #
+  def parse_keyword_token(self):
     if self.current_character not in LATTERS:
-      return None
+      raise SyntaxError("Not a keyword")
 
     string_val = self.current_character
     self.move_forward()
@@ -101,4 +147,4 @@ class Tokenizer:
 
     if string_val in KEYWORDS:
       return Token(TokenType.KEYWORD, string_val)
-    return None
+    raise SyntaxError("Found invalid tokens in input")

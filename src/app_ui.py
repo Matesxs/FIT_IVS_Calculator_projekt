@@ -19,6 +19,7 @@ class Ui_Calculator(object):
 
     self.button_number_zero = QtWidgets.QPushButton(self.centralWidget)
     self.button_number_zero.setGeometry(QtCore.QRect(0, 320, 121, 61))
+    self.button_number_zero.setToolTipDuration(0)
     self.button_number_zero.setStyleSheet("QPushButton { border: 1px solid gray; } QPushButton:pressed { "
                                           "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, "
                                           "stop: 0 #f0f0f0, stop: 1 #e3e3e3); }")
@@ -161,8 +162,13 @@ class Ui_Calculator(object):
     self.button_rbrac.setFont(QFont("Swis721 Ex BT", 12))
 
     self.button_power = QtWidgets.QPushButton(self.centralWidget)
-    self.button_power.setGeometry(QtCore.QRect(180, 140, 61, 61))
-    self.button_power.setToolTipDuration(0)
+    self.button_power.setGeometry(QtCore.QRect(180, 260, 61, 61))
+    self.button_power.setToolTipDuration(4000)
+    self.button_power.setToolTip("<html><head/><body><p>Power<hr>"
+                              "Example: 4^2<br>"
+                              "Range: x^y<br>"
+                              "Where x and y are real numbers"
+                              "</p></body></html>")
     self.button_power.setStyleSheet("QPushButton { background-color: rgb(214, 214, 214); "
                                     "border: 1px solid gray; } QPushButton:pressed { "
                                     "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, "
@@ -172,8 +178,13 @@ class Ui_Calculator(object):
     self.button_power.setFont(QFont("Swis721 Ex BT", 12))
 
     self.button_ln = QtWidgets.QPushButton(self.centralWidget)
-    self.button_ln.setGeometry(QtCore.QRect(180, 200, 61, 61))
-    self.button_ln.setToolTipDuration(0)
+    self.button_ln.setGeometry(QtCore.QRect(180, 140, 61, 61))
+    self.button_ln.setToolTipDuration(4000)
+    self.button_ln.setToolTip("<html><head/><body><p>Natural logarithm<hr>"
+                                "Example: ln(3)<br>"
+                                "Range: ln(x)<br>"
+                                "Where x >= 0 real number"
+                                "</p></body></html>")
     self.button_ln.setStyleSheet("QPushButton { background-color: rgb(214, 214, 214); "
                                  "border: 1px solid gray; } QPushButton:pressed { "
                                  "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, "
@@ -183,8 +194,13 @@ class Ui_Calculator(object):
     self.button_ln.setFont(QFont("Swis721 Ex BT", 12))
 
     self.button_factorial = QtWidgets.QPushButton(self.centralWidget)
-    self.button_factorial.setGeometry(QtCore.QRect(180, 260, 61, 61))
-    self.button_factorial.setToolTipDuration(0)
+    self.button_factorial.setGeometry(QtCore.QRect(180, 200, 61, 61))
+    self.button_factorial.setToolTipDuration(4000)
+    self.button_factorial.setToolTip("<html><head/><body><p>Factorial<hr>"
+                              "Example: fact(3)<br>"
+                              "Range: fact(x)<br>"
+                              "Where x is natural number"
+                              "</p></body></html>")
     self.button_factorial.setStyleSheet("QPushButton { background-color: rgb(214, 214, 214); "
                                         "border: 1px solid gray; } QPushButton:pressed { "
                                         "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, "
@@ -206,7 +222,13 @@ class Ui_Calculator(object):
 
     self.button_root = QtWidgets.QPushButton(self.centralWidget)
     self.button_root.setGeometry(QtCore.QRect(180, 320, 61, 61))
-    self.button_root.setToolTipDuration(0)
+    self.button_root.setToolTipDuration(4000)
+    self.button_root.setToolTip("<html><head/><body><p>NRoot function<hr>"
+                                "Example: 2√4<br>"
+                                "Range: x√y<br>"
+                                "Where x != 0 and y >= 0.<br>"
+                                "x - N root, y - Root base"
+                                "</p></body></html>")
     self.button_root.setStyleSheet("QPushButton { background-color: rgb(214, 214, 214); border: "
                                    "1px solid gray; } QPushButton:pressed { "
                                    "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, "
@@ -282,7 +304,11 @@ class Ui_Calculator(object):
 
     self.button_rand = QtWidgets.QPushButton(self.centralWidget)
     self.button_rand.setGeometry(QtCore.QRect(240, 320, 61, 61))
-    self.button_rand.setToolTipDuration(0)
+    self.button_rand.setToolTipDuration(4000)
+    self.button_rand.setToolTip("<html><head/><body><p>Random value<hr>"
+                                "Example: rand * 5<br>"
+                                "Generates number in range <0, 1)."
+                                "</p></body></html>")
     self.button_rand.setStyleSheet("QPushButton { background-color: rgb(214, 214, 214); border: "
                                    "1px solid gray; } QPushButton:pressed { "
                                    "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, "
@@ -293,7 +319,12 @@ class Ui_Calculator(object):
 
     self.abs_button = QtWidgets.QPushButton(self.centralWidget)
     self.abs_button.setGeometry(QtCore.QRect(240, 260, 61, 61))
-    self.abs_button.setToolTipDuration(0)
+    self.abs_button.setToolTipDuration(4000)
+    self.abs_button.setToolTip("<html><head/><body><p>Absolute value<hr>"
+                               "Example: abs(-5)<br>"
+                               "Range: abs(x)<br>"
+                               "Where x is real number."
+                               "</p></body></html>")
     self.abs_button.setStyleSheet("QPushButton { background-color: rgb(214, 214, 214); border: "
                                   "1px solid gray; } QPushButton:pressed { "
                                   "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, "
@@ -304,7 +335,12 @@ class Ui_Calculator(object):
 
     self.ten_power_button = QtWidgets.QPushButton(self.centralWidget)
     self.ten_power_button.setGeometry(QtCore.QRect(240, 200, 61, 61))
-    self.ten_power_button.setToolTipDuration(0)
+    self.ten_power_button.setToolTipDuration(4000)
+    self.ten_power_button.setToolTip("<html><head/><body><p>Number ten on power<hr>"
+                                     "Example: 10^2<br>"
+                                     "Range: 10^x<br>"
+                                     "Where x is real number."
+                                     "</p></body></html>")
     self.ten_power_button.setStyleSheet("QPushButton { background-color: rgb(214, 214, 214); border: "
                                         "1px solid gray; } QPushButton:pressed { "
                                         "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, "
@@ -315,22 +351,30 @@ class Ui_Calculator(object):
 
     self.e_power_button = QtWidgets.QPushButton(self.centralWidget)
     self.e_power_button.setGeometry(QtCore.QRect(240, 140, 61, 61))
-    self.e_power_button.setToolTipDuration(0)
+    self.e_power_button.setToolTipDuration(4000)
+    self.e_power_button.setToolTip("<html><head/><body><p>Euler number on power<hr>"
+                                   "Example: e^5"
+                                   "Range: e^x<br>"
+                                   "Where x is real number."
+                                   "</p></body></html>")
     self.e_power_button.setStyleSheet("QPushButton { background-color: rgb(214, 214, 214); border: "
-                                        "1px solid gray; } QPushButton:pressed { "
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, "
-                                        "stop: 0 #c9c9c9, stop: 1 #c7c7c7); }")
+                                      "1px solid gray; } QPushButton:pressed { "
+                                      "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, "
+                                      "stop: 0 #c9c9c9, stop: 1 #c7c7c7); }")
     self.e_power_button.setObjectName("e_power_button")
     self.e_power_button.setText("e^x")
     self.e_power_button.setFont(QFont("Swis721 Ex BT", 12))
 
     self.e_button = QtWidgets.QPushButton(self.centralWidget)
     self.e_button.setGeometry(QtCore.QRect(240, 80, 61, 61))
-    self.e_button.setToolTipDuration(0)
+    self.e_button.setToolTipDuration(4000)
+    self.e_button.setToolTip("<html><head/><body><p>Euler number<hr>"
+                             "Adds Euler number to equation"
+                             "</p></body></html>")
     self.e_button.setStyleSheet("QPushButton { background-color: rgb(214, 214, 214); border: "
-                                      "1px solid gray; } QPushButton:pressed { "
-                                      "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, "
-                                      "stop: 0 #c9c9c9, stop: 1 #c7c7c7); }")
+                                "1px solid gray; } QPushButton:pressed { "
+                                "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, "
+                                "stop: 0 #c9c9c9, stop: 1 #c7c7c7); }")
     self.e_button.setObjectName("e_button")
     self.e_button.setText("e")
     self.e_button.setFont(QFont("Swis721 Ex BT", 12))

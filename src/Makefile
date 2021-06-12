@@ -1,33 +1,17 @@
-all: pip test run
+.PHONY: all run clean doc profile profile_with_log test test_with_coverage init build build_standalone build_installer
 
-pip:
-	pip freeze
+all: init run
 
 run:
 	python main.py
 
-pack: build doc
-	mkdir "..\xdousa00_xslama32_xschin05"
-	xcopy /s /c /q "..\\src\\mathLib\\" "..\\xdousa00_xslama32_xschin05\\src\\mathLib\\"
-	xcopy /s /c /q "..\\installers\\" "..\\xdousa00_xslama32_xschin05\\installers\\"
-	xcopy /s /c /q "..\\docs\\" "..\\xdousa00_xslama32_xschin05\\docs\\"
-	xcopy /s /c /q "..\\profiling" "..\\xdousa00_xslama32_xschin05\\profiling\\"
-	copy "..\src\app_ui.py" "..\xdousa00_xslama32_xschin05\src\app_ui.py"
-	copy "..\src\calculator.py" "..\xdousa00_xslama32_xschin05\src\calculator.py"
-	copy "..\src\Doxyfile" "..\xdousa00_xslama32_xschin05\src\Doxyfile"
-	copy "..\src\library_tests.py" "..\xdousa00_xslama32_xschin05\src\library_tests.py"
-	copy "..\src\main.py" "..\xdousa00_xslama32_xschin05\src\main.py"
-	copy "..\src\Makefile" "..\xdousa00_xslama32_xschin05\src\Makefile"
-	copy "..\src\profiling.py" "..\xdousa00_xslama32_xschin05\src\profiling.py"
-	copy "..\src\profiling_with_log.py" "..\xdousa00_xslama32_xschin05\src\profiling_with_log.py"
-	copy "..\src\requirements.txt" "..\xdousa00_xslama32_xschin05\src\requirements.txt"
-	copy "..\debugging.jpg" "..\xdousa00_xslama32_xschin05\debugging.jpg"
-	copy "..\hodnoceni.txt" "..\xdousa00_xslama32_xschin05\hodnoceni.txt"
-	copy "..\plan.txt" "..\xdousa00_xslama32_xschin05\plan.txt"
-	copy "..\skutecnost.txt" "..\xdousa00_xslama32_xschin05\skutecnost.txt"
-	copy "..\README.md" "..\xdousa00_xslama32_xschin05\README.md"
-	tar.exe -c -f "..\xdousa00_xslama32_xschin05.zip" "..\xdousa00_xslama32_xschin05"
-	rmdir /q /s "..\xdousa00_xslama32_xschin05"
+clean:
+	python utils/remove.py "..\docs"
+	python utils/remove.py "..\install"
+	python utils/remove.py "build"
+	python utils/remove.py "dist"
+	python utils/remove.py "Calculator.spec"
+	python utils/remove.py ".coverage"
 
 doc:
 	Doxygen Doxyfile
@@ -42,18 +26,27 @@ test:
 	python library_tests.py
 
 test_with_coverage:
-	coverage run library_tests.py
+	-coverage run library_tests.py
 	coverage report -m
-	del .coverage
+	python utils/remove.py ".coverage"
 
 init:
 	pip install -r requirements.txt
 
-executable: main.py calculator.py app_ui.py mathLib
-	pyinstaller --onefile --noconsole --clean -n Calculator main.py
-	copy dist\Calculator.exe ..\installers\Calculator.exe
-	rmdir /q /s build
-	rmdir /q /s dist
-	del Calculator.spec
+build: build_standalone build_installer
 
-build: executable
+build_standalone:
+	pyinstaller --onefile --noconsole --clean -n CalculatorStandalone main.py
+	python utils/create_folder.py "..\install"
+	copy dist\CalculatorStandalone.exe ..\install\CalculatorStandalone.exe
+	python utils/remove.py "build"
+	python utils/remove.py "dist"
+	python utils/remove.py "CalculatorStandalone.spec"
+
+build_installer:
+	pyinstaller --onedir --noconsole --clean -n Calculator main.py
+	python utils/create_folder.py "..\install"
+	-iscc .\utils\installer_compile_script.iss
+	python utils/remove.py "build"
+	python utils/remove.py "dist"
+	python utils/remove.py "Calculator.spec"

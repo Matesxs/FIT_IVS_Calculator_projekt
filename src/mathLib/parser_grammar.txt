@@ -1,0 +1,14 @@
+expr        :         term ((PLUS|MINUS) term)*
+
+term        :         factor ((MULTIPLY|DIVIDE) factor)*
+
+factor      :         (PLUS|MINUS) factor
+            :         power
+
+power       :         atom ((POW|ROOT) factor)*
+
+atom        :         NUMBER|KEYWORD:e|KEYWORD:rand
+            :         LPAREN expr RPAREN
+            :         KEYWORD:abs factor
+            :         KEYWORD:ln atom
+
