@@ -52,7 +52,6 @@ test - run tests on app
 test_with_coverage - run tests on app with test code coverage
 profile - start profiling program with input from console
 profile_with_log - start profiling with random data input and output log data (graphviz optional)
-pack - create .exe files from app, generate docomentation and pack it to zip for submit
 ```
 
 ## Tools
